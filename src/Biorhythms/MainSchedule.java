@@ -24,7 +24,7 @@ public class MainSchedule {
         System.out.println("Masukan tahun awal shift");
         int thnShift = in.nextInt();
         // handling jika inputan jmlshift, tgl, bln, thn bukan integer, maka muncul joptionpane bahwa inputan salah 
-        //Date shift lupa belum saya tambahkan handling validate
+        //untuk Date shift lupa belum saya tambahkan handling validate
         
         System.out.println("PEKERJA 1");
         ValiDate tanggal = new ValiDate(jmlShift, tglShift, blnShift, thnShift);
