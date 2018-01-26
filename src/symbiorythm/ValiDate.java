@@ -18,15 +18,84 @@ import java.util.logging.Logger;
  *
  * @author april nf
  */
-public class Tanggal {
+public class ValiDate {
 
-    private int jmlShift;
-    private Date Tgl[], Tgllahir, Tglshift;
+    private int jmlShift, tgl, bln, thn, jumlahHari, tglAwal, blnAwal, thnAwal;
+    private Date Tgllahir, Tglshift;
     private boolean isValidate = true;
+    protected Date Shift[];
 
-    public Tanggal(int jmlShift) {
-        Tgl = new Date[jmlShift];
+    public ValiDate(int jmlShift, int tglAwal, int blnAwal, int thnAwal) {
+        Shift = new Date[jmlShift];
         setJmlShift(jmlShift);
+        setTglAwal(tglAwal);
+        setBlnAwal(blnAwal);
+        setThnAwal(thnAwal);
+        System.out.println(thnAwal);
+    }
+
+    public void setTgl(int tgl) {
+        this.tgl = tgl;
+    }
+
+    public void setBln(int bln) {
+        this.bln = bln;
+    }
+
+    public void setThn(int thn) {
+        this.thn = thn;
+    }
+
+    public int getTgl() {
+        return tgl;
+    }
+
+    public int getBln() {
+        return bln;
+    }
+
+    public int getThn() {
+        return thn;
+    }
+
+    public void setTglAwal(int tglAwal) {
+        this.tglAwal = tglAwal;
+    }
+
+    public int getTglAwal() {
+        return tglAwal;
+    }
+
+    public void setBlnAwal(int blnAwal) {
+        this.blnAwal = blnAwal;
+    }
+
+    public int getBlnAwal() {
+        return blnAwal;
+    }
+
+    public void setThnAwal(int thnAwal) {
+        this.thnAwal = thnAwal;
+    }
+
+    public int getThnAwal() {
+        return thnAwal;
+    }   
+
+    public void setJumlahHari(int jumlahHari) {
+        this.jumlahHari = jumlahHari;
+    }
+
+    public int getJumlahHari() {
+        return jumlahHari;
+    }
+
+    public void setShift(Date[] Shift) {
+        this.Shift = Shift;
+    }
+
+    public Date[] getShift() {
+        return Shift;
     }
 
     public void setJmlShift(int jmlShift) {
@@ -53,8 +122,7 @@ public class Tanggal {
         this.Tglshift = Tglshift;
     }
 
-    public void validate(int tgl, int bln, int thn) {
-        int jumlahHari;
+    public void validate() {
         switch (bln) {
             case 1:
             case 3:
@@ -63,47 +131,48 @@ public class Tanggal {
             case 8:
             case 10:
             case 12:
-                jumlahHari = 31;
-                check(tgl, jumlahHari, bln, thn);
+                setJumlahHari(31);
+                check();
                 break;
             case 2:
-                jumlahHari = thn % 4 == 0 ? 29 : 28;
-                check(tgl, jumlahHari, bln, thn);
+                int jumlah = thn % 4 == 0 ? 29 : 28;
+                setJumlahHari(jumlah);
+                check();
                 break;
             case 4:
             case 6:
             case 9:
             case 11:
-                jumlahHari = 30;
-                check(tgl, jumlahHari, bln, thn);
+                setJumlahHari(30);
+                check();
                 break;
             default:
-                System.out.println("Data tanggal yang Anda masukan salah");
+                System.out.println("Data tanggal yang Anda masukan salah" + getTgl() + " - " + getBln() + " - " + getThn());
                 isValidate = false;
         }
     }
 
-    void check(int tgl, int jumlahHari, int bln, int thn) {
+    void check() {
         try {
-            assert (tgl <= jumlahHari || tgl > 0);
-            if (tgl > jumlahHari || tgl < 0) {
+            assert (getTgl() <= jumlahHari || getTgl() > 0);
+            if (getTgl() > jumlahHari || getTgl() < 0) {
                 isValidate = false;
                 throw new CustomException("Input data tanggal salah");
             }
-            makeCal(tgl, bln, thn);
+            makeCal();
         } catch (CustomException ex) {
             System.out.println(ex.getMessage());
         }
     }
 
-    void makeCal(int tgl, int bln, int thn) {
-        StringBuilder builder2 = new StringBuilder();
-        builder2.append(31);
-        builder2.append("/");
-        builder2.append(12);
-        builder2.append("/");
-        builder2.append(2017);
-        String shift = builder2.toString();
+    void makeCal() {
+        StringBuilder builder = new StringBuilder();
+        builder.append(getTglAwal());
+        builder.append("/");
+        builder.append(getBlnAwal());
+        builder.append("/");
+        builder.append(getThnAwal());
+        String shift = builder.toString();
         SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
 
         try {
@@ -111,24 +180,25 @@ public class Tanggal {
         } catch (ParseException ex) {
             System.out.println(ex.getMessage());
         }
-        checkLebih(tgl, bln, thn);
+        checkLebih();
         Calendar cal = Calendar.getInstance();
-        for (int i = 0; i < 2; i++) {
+        Date[] temp = new Date[getJmlShift()];
+        for (int i = 0; i < getJmlShift(); i++) {
             cal.setTime(Tglshift);
             cal.add(Calendar.DAY_OF_MONTH, i);
             System.out.println(df.format(cal.getTime()));
-            Tgl[i] = (cal.getTime());
+            temp[i] = (cal.getTime());
+            setShift(temp);
         }
-        Hitung(Tgl);
     }
 
-    void checkLebih(int tgl, int bln, int thn) {
+    void checkLebih() {
         StringBuilder builder = new StringBuilder();
-        builder.append(tgl);
+        builder.append(getTgl());
         builder.append("/");
-        builder.append(bln);
+        builder.append(getBln());
         builder.append("/");
-        builder.append(thn);
+        builder.append(getThn());
         String lahir = builder.toString();
 
         SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
@@ -148,35 +218,21 @@ public class Tanggal {
             System.out.println(ex.getMessage());
         }
     }
+    
+    public void checkHandling(){
+        
+    }
 
-    public void Hitung(Date shift[]) {
+    public void Hitung(Date shift[], Symbiorythm sym) {
         if (isValidate == true) {
             int hari[] = new int[getJmlShift()];
             for (int i = 0; i < hari.length; i++) {
                 hari[i] = (int) TimeUnit.MILLISECONDS.toDays((shift[i].getTime() - getTgllahir().getTime()));
-                System.out.println(" " + hari[i]);
-                Symbiorythm sym = new Symbiorythm(getJmlShift());
                 sym.getFisik(hari);
                 sym.getEmosional(hari);
                 sym.getIntelektual(hari);
                 sym.totalSym();
             }
         }
-    }
-
-    public static void main(String[] args) {
-        Scanner in = new Scanner(System.in);
-        int tgl, bln, thn, tgl2, bln2, thn2;
-        Tanggal tanggal = new Tanggal(2);
-        tgl = in.nextInt();
-        bln = in.nextInt();
-        thn = in.nextInt();
-        tanggal.validate(tgl, bln, thn);
-
-        Tanggal tanggal2 = new Tanggal(2);
-        tgl2 = in.nextInt();
-        bln2 = in.nextInt();
-        thn2 = in.nextInt();
-        tanggal2.validate(tgl2, bln2, thn2);
     }
 }
