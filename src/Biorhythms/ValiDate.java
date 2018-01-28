@@ -133,7 +133,7 @@ public class ValiDate {
 
     void makeShift() {
         do {
-            isValidate=true;
+            isValidate = true;
             try {
                 System.out.println("Masukan jumlah shift: ");
                 jmlShift = in.nextInt();
@@ -149,12 +149,14 @@ public class ValiDate {
                 System.out.println("Input must be integer");
             }
         } while (isValidate == false);
-        if(isValidate==true){
+
+        if (isValidate == true) {
             HandlingBatasan(tglAwal, blnAwal, thnAwal);
         }
+
     }
-    
-    void HandlingBatasan(int tglAwal, int blnAwal, int thnAwal){
+
+    void HandlingBatasan(int tglAwal, int blnAwal, int thnAwal) {
         try {
             if (getJmlShift() < 5 || getJmlShift() > 10) {
                 isValidate = false;
