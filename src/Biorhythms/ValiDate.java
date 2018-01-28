@@ -9,6 +9,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -19,16 +20,14 @@ public class ValiDate {
 
     private int jmlShift, tgl, bln, thn, jumlahHari, tglAwal, blnAwal, thnAwal;
     private Date Tgllahir, Tglshift;
-    private boolean isValidate = true;
+    boolean isValidate = true;
     protected Date Shift[];
+    Scanner in;
+    SimpleDateFormat df;
 
-    public ValiDate(int jmlShift, int tglAwal, int blnAwal, int thnAwal) {
-        Shift = new Date[jmlShift];
-        setJmlShift(jmlShift);
-        setTglAwal(tglAwal);
-        setBlnAwal(blnAwal);
-        setThnAwal(thnAwal);
-        System.out.println(thnAwal);
+    public ValiDate() {
+        in = new Scanner(System.in);
+        df = new SimpleDateFormat("dd/MM/yyyy");
     }
 
     public void setTgl(int tgl) {
@@ -77,7 +76,7 @@ public class ValiDate {
 
     public int getThnAwal() {
         return thnAwal;
-    }   
+    }
 
     public void setJumlahHari(int jumlahHari) {
         this.jumlahHari = jumlahHari;
@@ -119,7 +118,17 @@ public class ValiDate {
         this.Tglshift = Tglshift;
     }
 
+    void makeBirthDate() {
+        System.out.println("Masukan tanggal lahir pekerja: ");
+        setTgl(in.nextInt());
+        System.out.println("Masukan bulan lahir pekerja: ");
+        setBln(in.nextInt());
+        System.out.println("Masukan tahun lahir pekerja: ");
+        setThn(in.nextInt());
+    }
+
     public void validate() {
+        makeBirthDate();
         switch (bln) {
             case 1:
             case 3:
@@ -156,27 +165,53 @@ public class ValiDate {
                 isValidate = false;
                 throw new CustomException("Input data tanggal salah");
             }
+            isValidate = true;
             makeCal();
         } catch (CustomException ex) {
             System.out.println(ex.getMessage());
         }
     }
 
-    void makeCal() {
-        StringBuilder builder = new StringBuilder();
-        builder.append(getTglAwal());
-        builder.append("/");
-        builder.append(getBlnAwal());
-        builder.append("/");
-        builder.append(getThnAwal());
-        String shift = builder.toString();
-        SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
-
+    void makeShift() {
+        System.out.println("Masukan jumlah shift: ");
+        jmlShift = in.nextInt();
+        setJmlShift(jmlShift);
+        System.out.println("Masukan tanggal awal shift");
+        tglAwal = in.nextInt();
+        System.out.println("Masukan bulsn awal shift");
+        blnAwal = in.nextInt();
+        System.out.println("Masukan tahun awal shift");
+        thnAwal = in.nextInt();
         try {
-            setTglshift(df.parse(shift));
-        } catch (ParseException ex) {
+            if (jmlShift < 5 || jmlShift > 10) {
+                isValidate = false;
+                throw new CustomException("Jumlah shift antara 5 sampai 10 hari");
+            } else {
+                Shift = new Date[jmlShift];
+                setJmlShift(jmlShift);
+                setTglAwal(tglAwal);
+                setBlnAwal(blnAwal);
+                setThnAwal(thnAwal);
+                StringBuilder builder = new StringBuilder();
+                builder.append(getTglAwal());
+                builder.append("/");
+                builder.append(getBlnAwal());
+                builder.append("/");
+                builder.append(getThnAwal());
+                String shift = builder.toString();
+                try {
+                    setTglshift(df.parse(shift));
+                } catch (ParseException ex) {
+                    System.out.println(ex.getMessage());
+                }
+                isValidate = true;
+            }
+        } catch (CustomException ex) {
             System.out.println(ex.getMessage());
         }
+    }
+
+    void makeCal() {
         checkLebih();
         Calendar cal = Calendar.getInstance();
         Date[] temp = new Date[getJmlShift()];
@@ -211,13 +246,10 @@ public class ValiDate {
                 isValidate = false;
                 throw new CustomException("Tanggal lahir tidak diperbolehkan melebihi tanggal shift");
             }
+            isValidate = true;
         } catch (CustomException ex) {
             System.out.println(ex.getMessage());
         }
-    }
-    
-    public void checkHandling(){
-        
     }
 
     public void Hitung(Date shift[], Biorhythms sym) {

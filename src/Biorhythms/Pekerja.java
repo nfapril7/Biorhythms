@@ -21,7 +21,7 @@ public class Pekerja extends Biorhythms{
             if (a[i] > b[i]) {
                 pilih = "Pekerja 1";
             }
-                  System.out.println(v.Shift[i]+" : "+pilih);
+                  System.out.println(v.Shift[i]+" : "+pilih+ " -- "+a[i]+" - "+b[i]);
         }
         return pilih;
     }
