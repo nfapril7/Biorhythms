@@ -9,6 +9,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
@@ -82,10 +83,6 @@ public class ValiDate {
         this.jumlahHari = jumlahHari;
     }
 
-    public int getJumlahHari() {
-        return jumlahHari;
-    }
-
     public void setShift(Date[] Shift) {
         this.Shift = Shift;
     }
@@ -118,7 +115,7 @@ public class ValiDate {
         this.Tglshift = Tglshift;
     }
 
-    Date  makeAppend(int tgl, int bln, int thn) {
+    Date makeAppendShift(int tgl, int bln, int thn) {
         StringBuilder builder = new StringBuilder();
         builder.append(tgl);
         builder.append("/");
@@ -135,15 +132,23 @@ public class ValiDate {
     }
 
     void makeShift() {
-        System.out.println("Masukan jumlah shift: ");
-        jmlShift = in.nextInt();
-        setJmlShift(jmlShift);
-        System.out.println("Masukan tanggal awal shift");
-        tglAwal = in.nextInt();
-        System.out.println("Masukan bulsn awal shift");
-        blnAwal = in.nextInt();
-        System.out.println("Masukan tahun awal shift");
-        thnAwal = in.nextInt();
+        do {
+            isValidate=true;
+            try {
+                System.out.println("Masukan jumlah shift: ");
+                jmlShift = in.nextInt();
+                setJmlShift(jmlShift);
+                System.out.println("Masukan tanggal awal shift");
+                tglAwal = in.nextInt();
+                System.out.println("Masukan bulan awal shift");
+                blnAwal = in.nextInt();
+                System.out.println("Masukan tahun awal shift");
+                thnAwal = in.nextInt();
+            } catch (InputMismatchException er) {
+                isValidate = false;
+                System.out.println("Input must be integer");
+            }
+        } while (isValidate == false);
         try {
             if (jmlShift < 5 || jmlShift > 10) {
                 isValidate = false;
@@ -154,7 +159,7 @@ public class ValiDate {
                 setTglAwal(tglAwal);
                 setBlnAwal(blnAwal);
                 setThnAwal(thnAwal);
-                makeAppend(getTglAwal(), getBlnAwal(), getThnAwal());
+                makeAppendShift(getTglAwal(), getBlnAwal(), getThnAwal());
                 isValidate = true;
             }
         } catch (CustomException ex) {
