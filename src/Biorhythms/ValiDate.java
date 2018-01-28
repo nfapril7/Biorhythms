@@ -149,13 +149,19 @@ public class ValiDate {
                 System.out.println("Input must be integer");
             }
         } while (isValidate == false);
+        if(isValidate==true){
+            HandlingBatasan(tglAwal, blnAwal, thnAwal);
+        }
+    }
+    
+    void HandlingBatasan(int tglAwal, int blnAwal, int thnAwal){
         try {
-            if (jmlShift < 5 || jmlShift > 10) {
+            if (getJmlShift() < 5 || getJmlShift() > 10) {
                 isValidate = false;
                 throw new CustomException("Jumlah shift antara 5 sampai 10 hari");
             } else {
-                Shift = new Date[jmlShift];
-                setJmlShift(jmlShift);
+                Shift = new Date[getJmlShift()];
+                setJmlShift(getJmlShift());
                 setTglAwal(tglAwal);
                 setBlnAwal(blnAwal);
                 setThnAwal(thnAwal);
