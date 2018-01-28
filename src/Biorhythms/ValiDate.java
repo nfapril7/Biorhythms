@@ -118,6 +118,50 @@ public class ValiDate {
         this.Tglshift = Tglshift;
     }
 
+    Date  makeAppend(int tgl, int bln, int thn) {
+        StringBuilder builder = new StringBuilder();
+        builder.append(tgl);
+        builder.append("/");
+        builder.append(bln);
+        builder.append("/");
+        builder.append(thn);
+        String tempShift = builder.toString();
+        try {
+            setTglshift(df.parse(tempShift));
+        } catch (ParseException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return Tglshift;
+    }
+
+    void makeShift() {
+        System.out.println("Masukan jumlah shift: ");
+        jmlShift = in.nextInt();
+        setJmlShift(jmlShift);
+        System.out.println("Masukan tanggal awal shift");
+        tglAwal = in.nextInt();
+        System.out.println("Masukan bulsn awal shift");
+        blnAwal = in.nextInt();
+        System.out.println("Masukan tahun awal shift");
+        thnAwal = in.nextInt();
+        try {
+            if (jmlShift < 5 || jmlShift > 10) {
+                isValidate = false;
+                throw new CustomException("Jumlah shift antara 5 sampai 10 hari");
+            } else {
+                Shift = new Date[jmlShift];
+                setJmlShift(jmlShift);
+                setTglAwal(tglAwal);
+                setBlnAwal(blnAwal);
+                setThnAwal(thnAwal);
+                makeAppend(getTglAwal(), getBlnAwal(), getThnAwal());
+                isValidate = true;
+            }
+        } catch (CustomException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+
     void makeBirthDate() {
         System.out.println("Masukan tanggal lahir pekerja: ");
         setTgl(in.nextInt());
@@ -172,45 +216,6 @@ public class ValiDate {
         }
     }
 
-    void makeShift() {
-        System.out.println("Masukan jumlah shift: ");
-        jmlShift = in.nextInt();
-        setJmlShift(jmlShift);
-        System.out.println("Masukan tanggal awal shift");
-        tglAwal = in.nextInt();
-        System.out.println("Masukan bulsn awal shift");
-        blnAwal = in.nextInt();
-        System.out.println("Masukan tahun awal shift");
-        thnAwal = in.nextInt();
-        try {
-            if (jmlShift < 5 || jmlShift > 10) {
-                isValidate = false;
-                throw new CustomException("Jumlah shift antara 5 sampai 10 hari");
-            } else {
-                Shift = new Date[jmlShift];
-                setJmlShift(jmlShift);
-                setTglAwal(tglAwal);
-                setBlnAwal(blnAwal);
-                setThnAwal(thnAwal);
-                StringBuilder builder = new StringBuilder();
-                builder.append(getTglAwal());
-                builder.append("/");
-                builder.append(getBlnAwal());
-                builder.append("/");
-                builder.append(getThnAwal());
-                String shift = builder.toString();
-                try {
-                    setTglshift(df.parse(shift));
-                } catch (ParseException ex) {
-                    System.out.println(ex.getMessage());
-                }
-                isValidate = true;
-            }
-        } catch (CustomException ex) {
-            System.out.println(ex.getMessage());
-        }
-    }
-
     void makeCal() {
         checkLebih();
         Calendar cal = Calendar.getInstance();
@@ -224,23 +229,24 @@ public class ValiDate {
         }
     }
 
-    void checkLebih() {
+    Date makeAppendforBirth(int tgl, int bln, int thn) {
         StringBuilder builder = new StringBuilder();
-        builder.append(getTgl());
+        builder.append(tgl);
         builder.append("/");
-        builder.append(getBln());
+        builder.append(bln);
         builder.append("/");
-        builder.append(getThn());
+        builder.append(thn);
         String lahir = builder.toString();
-
-        SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
-
         try {
             setTgllahir(df.parse(lahir));
         } catch (ParseException ex) {
             System.out.println(ex.getMessage());
         }
+        return Tgllahir;
+    }
 
+    void checkLebih() {
+        makeAppendforBirth(getTgl(), getBln(), getThn());
         try {
             if (getTgllahir().after(getTglshift()) || getTgllahir().equals(getTglshift())) {
                 isValidate = false;

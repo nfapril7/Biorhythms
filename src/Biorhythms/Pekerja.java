@@ -15,13 +15,15 @@ public class Pekerja extends Biorhythms{
         super(jmlhari);
     }
 
-    public String perbandingan(double a[], double b[], int jumlahshift, ValiDate v) {
-        String pilih = "Pekerja 2";
+    public String[] perbandingan(double a[], double b[], int jumlahshift, ValiDate v) {
+        String pilih[] = new String [jumlahshift];
         for (int i = 0; i < jumlahshift; i++) {
             if (a[i] > b[i]) {
-                pilih = "Pekerja 1";
+                pilih[i] = "Pekerja 1";
+            }else{
+                pilih[i] = "Pekerja 2";
             }
-                  System.out.println(v.Shift[i]+" : "+pilih+ " -- "+a[i]+" - "+b[i]);
+                  System.out.println(v.Shift[i]+" : "+pilih[i]+ " -- "+a[i]+" - "+b[i]);
         }
         return pilih;
     }

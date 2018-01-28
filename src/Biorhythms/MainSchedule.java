@@ -5,8 +5,6 @@
  */
 package Biorhythms;
 
-import java.util.Scanner;
-
 /**
  *
  * @author april nf
@@ -15,7 +13,6 @@ public class MainSchedule {
     
     public static void main(String[] args) {
         // handling jika inputan jmlshift, tgl, bln, thn bukan integer, maka muncul joptionpane bahwa inputan salah 
-        //untuk Date shift lupa belum saya tambahkan handling validate
 
         System.out.println("PEKERJA 1");
         ValiDate tanggal = new ValiDate();
@@ -39,7 +36,6 @@ public class MainSchedule {
         Biorhythms s2 = new Biorhythms(tanggal2.getJmlShift());
         tanggal2.Hitung(tanggal2.getShift(), s2);
         Pekerja p2 = new Pekerja(tanggal.getJmlShift());
-        p2.perbandingan(s1.total, s2.total, tanggal.getJmlShift(), tanggal);
-        
+        p2.perbandingan(s1.total, s2.total, tanggal.getJmlShift(), tanggal);        
     }
 }
