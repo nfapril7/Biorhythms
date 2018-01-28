@@ -9,48 +9,55 @@ package Biorhythms;
  *
  * @author april nf
  */
-public class Pekerja {
+public class Pekerja extends Biorhythms{
 
-    double fisik[], emosional[], intelektual[], total[];
-
-    public Pekerja(int jumlah) {
-        fisik = new double[jumlah];
-        emosional = new double[jumlah];
-        intelektual = new double[jumlah];
-        total = new double[jumlah];
+    public Pekerja(int jmlhari) {
+        super(jmlhari);
     }
 
-    public void setFisik(double[] fisik) {
-        this.fisik = fisik;
-    }
 
-    public double[] getFisik() {
-        return fisik;
-    }
+    
 
-    public void setEmosional(double[] emosional) {
-        this.emosional = emosional;
-    }
+    //double fisik[], emosional[], intelektual[], total[];
 
-    public double[] getEmosional() {
-        return emosional;
-    }
+//    public Pekerja() {
+//        fisik = new double[jumlah];
+//        emosional = new double[jumlah];
+//        intelektual = new double[jumlah];
+//        total = new double[jumlah];
+//    }
 
-    public void setIntelektual(double[] intelektual) {
-        this.intelektual = intelektual;
-    }
-
-    public double[] getIntelektual() {
-        return intelektual;
-    }
-
-    public void setTotal(double[] total) {
-        this.total = total;
-    }
-
-    public double[] getTotal() {
-        return total;
-    }
+//    public void setFisik(double[] fisik) {
+//        this.fisik = fisik;
+//    }
+//
+//    public double[] getFisik() {
+//        return fisik;
+//    }
+//
+//    public void setEmosional(double[] emosional) {
+//        this.emosional = emosional;
+//    }
+//
+//    public double[] getEmosional() {
+//        return emosional;
+//    }
+//
+//    public void setIntelektual(double[] intelektual) {
+//        this.intelektual = intelektual;
+//    }
+//
+//    public double[] getIntelektual() {
+//        return intelektual;
+//    }
+//
+//    public void setTotal(double[] total) {
+//        this.total = total;
+//    }
+//
+//    public double[] getTotal() {
+//        return total;
+//    }
 
     public String perbandingan(double a[], double b[], int jumlahshift, ValiDate v) {
         String pilih = "Pekerja 2";

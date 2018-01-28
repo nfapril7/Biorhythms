@@ -40,11 +40,11 @@ public class MainSchedule {
         Biorhythms s1 = new Biorhythms(tanggal.getJmlShift());
         tanggal.Hitung(tanggal.getShift(), s1);
 
-        Pekerja p1 = new Pekerja(2);
-        p1.setFisik(s1.fisik);
-        p1.setEmosional(s1.emosional);
-        p1.setIntelektual(s1.intelektual);
-        p1.setTotal(s1.total);
+        Pekerja p1 = new Pekerja(jmlShift);
+//        p1.setFisik(s1.fisik);
+//        p1.setEmosional(s1.emosional);
+//        p1.setIntelektual(s1.intelektual);
+//        p1.setTotal(s1.total);
         
         System.out.println("PEKERJA 2");
         ValiDate tanggal2 = new ValiDate(jmlShift, tglShift, blnShift, thnShift);
@@ -61,10 +61,10 @@ public class MainSchedule {
         tanggal2.Hitung(tanggal2.getShift(), s2);
 
         Pekerja p2 = new Pekerja(jmlShift);
-        p2.setFisik(s2.fisik);
-        p2.setEmosional(s2.emosional);
-        p2.setIntelektual(s2.intelektual);
-        p2.setTotal(s2.total);
+//        p2.setFisik(s2.fisik);
+//        p2.setEmosional(s2.emosional);
+//        p2.setIntelektual(s2.intelektual);
+//        p2.setTotal(s2.total);
         p2.perbandingan(s1.total, s2.total, jmlShift, tanggal);
 
     }
