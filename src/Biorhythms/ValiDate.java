@@ -223,30 +223,28 @@ public class ValiDate {
      * Method makeShift untuk merequest inputan user pada varibel jumlah shift,
      * tgl , bln, tahun shift
      */
-    void makeShift() {
+//    void makeShift() {
 //        do {
 //            isValidate = true;
 //            try {
-        System.out.println("Masukan jumlah shift: ");
-        jmlShift = in.nextInt();
-        setJmlShift(jmlShift);
-        System.out.println("Masukan tanggal awal shift");
-        tglAwal = in.nextInt();
-        System.out.println("Masukan bulan awal shift");
-        blnAwal = in.nextInt();
-        System.out.println("Masukan tahun awal shift");
-        thnAwal = in.nextInt();
+//        System.out.println("Masukan jumlah shift: ");
+//        jmlShift = in.nextInt();
+//        setJmlShift(jmlShift);
+//        System.out.println("Masukan tanggal awal shift");
+//        tglAwal = in.nextInt();
+//        System.out.println("Masukan bulan awal shift");
+//        blnAwal = in.nextInt();
+//        System.out.println("Masukan tahun awal shift");
+//        thnAwal = in.nextInt();
 //            } catch (InputMismatchException er) {
 //                isValidate = false;
 //                System.out.println("Input must be integer");
 //            }
 //        } while (isValidate == false);
-
 //        if (isValidate == true) {
-        HandlingBatasan(tglAwal, blnAwal, thnAwal);
+//        HandlingBatasan(tglAwal, blnAwal, thnAwal);
 //        }
-    }
-
+//    }
     /**
      * Method makeAppendShift untuk membentuk Date Shift Pertama menggabungkan
      * inputan parameter tgl, bln, thn menggunakan fungsi Append Mengubah
@@ -283,14 +281,14 @@ public class ValiDate {
      * @param blnAwal : membutuhkan inputan parameter bulan shift
      * @param thnAwal : membutuhkan inputan parameter tahun shift
      */
-    void HandlingBatasan(int tglAwal, int blnAwal, int thnAwal) {
+    void HandlingBatasan(int tglAwal, int blnAwal, int thnAwal, int jmlShift) {
         try {
-            if (getJmlShift() < 5 || getJmlShift() > 10) {
+            if (jmlShift < 5 || jmlShift > 10) {
                 isValidate = false;
                 throw new CustomException("Jumlah shift antara 5 sampai 10 hari");
             } else {
                 Shift = new Date[getJmlShift()];
-                setJmlShift(getJmlShift());
+                setJmlShift(jmlShift);
                 setTglAwal(tglAwal);
                 setBlnAwal(blnAwal);
                 setThnAwal(thnAwal);
@@ -383,14 +381,16 @@ public class ValiDate {
             setShift(temp);
         }
     }
-/**
- * Method makeAppendforBirth untuk menggabungkan tgl, bln, thn lahir pekerja
- * kemudian diubah ke dalam format dd/mm/yyyy
- * @param tgl
- * @param bln
- * @param thn
- * @return 
- */
+
+    /**
+     * Method makeAppendforBirth untuk menggabungkan tgl, bln, thn lahir pekerja
+     * kemudian diubah ke dalam format dd/mm/yyyy
+     *
+     * @param tgl
+     * @param bln
+     * @param thn
+     * @return
+     */
     Date makeAppendforBirth(int tgl, int bln, int thn) {
         StringBuilder builder = new StringBuilder();
         builder.append(tgl);
@@ -424,12 +424,15 @@ public class ValiDate {
             System.out.println(ex.getMessage());
         }
     }
-/**
- * Method Hitung untuk memanggil kelas Biorhythm
- * jika tanggal shift dan lahir sudah tervalidasi maka dapat dilakukan perhitungan dengan rumus Biorhythms
- * @param shift
- * @param sym 
- */
+
+    /**
+     * Method Hitung untuk memanggil kelas Biorhythm jika tanggal shift dan
+     * lahir sudah tervalidasi maka dapat dilakukan perhitungan dengan rumus
+     * Biorhythms
+     *
+     * @param shift
+     * @param sym
+     */
     public void Hitung(Date shift[], Biorhythms sym) {
         if (isValidate == true) {
             int hari[] = new int[getJmlShift()];
