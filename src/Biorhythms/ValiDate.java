@@ -13,6 +13,7 @@ import java.util.Date;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -156,6 +157,7 @@ public class ValiDate {
      * tanggal, bulan, tahun yang diinputkan
      */
     public void setShift(Date[] Shift) {
+        System.out.println("yyyyy");
         this.Shift = Shift;
     }
 
@@ -164,6 +166,7 @@ public class ValiDate {
      * @return Mengembalikan nilai variabel Shift
      */
     public Date[] getShift() {
+        System.out.println("ooo");
         return Shift;
     }
 
@@ -282,11 +285,14 @@ public class ValiDate {
      * @param blnAwal : membutuhkan inputan parameter bulan shift
      * @param thnAwal : membutuhkan inputan parameter tahun shift
      */
-    void HandlingBatasan(int tglAwal, int blnAwal, int thnAwal, int jmlShift) {
+    void MakeShift(int tglAwal, int blnAwal, int thnAwal, int jmlShift) {
         try {
             if (jmlShift < 5 || jmlShift > 10) {
                 isValidate = false;
-                throw new CustomException("Jumlah shift antara 5 sampai 10 hari");
+                JOptionPane.showMessageDialog(null, "Jumlah shift antara 5 sampai 10 hari",
+                        "Warning", JOptionPane.INFORMATION_MESSAGE);
+                throw new CustomException("Jumlah shift antara 5 sampai 10 hari");               
+                
             } else {
                 Shift = new Date[getJmlShift()];
                 setJmlShift(jmlShift);
@@ -317,8 +323,10 @@ public class ValiDate {
     /**
      * Method validate untuk memvalidasi inputan tgl, bln, tahun
      */
-    public void validate() {
-        makeBirthDate();
+    public void validate(int tgl, int bln, int thn) {
+        setTgl(tgl);
+        setBln(bln);
+        setThn(thn);
         switch (bln) {
             case 1:
             case 3:
@@ -353,6 +361,7 @@ public class ValiDate {
      * melebihi/kurang dari jumlah hari dalam suatu bulan
      */
     void check() {
+        System.out.println("yap");
         try {
             assert (getTgl() <= jumlahHari || getTgl() > 0);
             if (getTgl() > jumlahHari || getTgl() < 0) {
@@ -371,6 +380,7 @@ public class ValiDate {
      *
      */
     void makeCal() {
+        System.out.println("ya");
         checkLebih();
         Calendar cal = Calendar.getInstance();
         Date[] temp = new Date[getJmlShift()];
@@ -438,6 +448,7 @@ public class ValiDate {
         if (isValidate == true) {
             int hari[] = new int[getJmlShift()];
             for (int i = 0; i < hari.length; i++) {
+//                System.out.println(shift[i].getTime());
                 hari[i] = (int) TimeUnit.MILLISECONDS.toDays((shift[i].getTime() - getTgllahir().getTime()));
                 sym.getFisik(hari);
                 sym.getEmosional(hari);

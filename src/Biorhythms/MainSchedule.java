@@ -16,10 +16,10 @@ public class MainSchedule {
         System.out.println("PEKERJA 1");
         ValiDate tanggal = new ValiDate();
         do {
-            tanggal.makeShift();
+            tanggal.MakeShift(2, 2, 2018, 1);
         } while (tanggal.isValidate == false);
         do {
-            tanggal.validate();
+//            tanggal.validate();
         } while (tanggal.isValidate == false);
         Biorhythms s1 = new Biorhythms(tanggal.getJmlShift());
         tanggal.Hitung(tanggal.getShift(), s1);
@@ -30,7 +30,7 @@ public class MainSchedule {
         tanggal2.setJmlShift(tanggal.getJmlShift());
         tanggal2.setTglshift(tanggal.getTglshift());
         do {
-            tanggal2.validate();
+//            tanggal2.validate();
         } while (tanggal2.isValidate == false);
         Biorhythms s2 = new Biorhythms(tanggal2.getJmlShift());
         tanggal2.Hitung(tanggal2.getShift(), s2);
