@@ -5,6 +5,7 @@
  */
 package Biorhythms;
 
+import java.awt.event.KeyEvent;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -440,6 +441,17 @@ public class ValiDate {
                 sym.getIntelektual(hari);
                 sym.getTotal();
             }
+        }
+    }
+    /**
+     * 
+     * @param evt variabel untuk menset objek dari keyevent
+     * method validasiKarakter digunakan untuk validasi agar tidak bisa menginputkan selain integer
+     */
+    public void validasiKarakter(java.awt.event.KeyEvent evt){
+        char c = evt.getKeyChar();
+        if (!(Character.isDigit(c)) || (c == KeyEvent.VK_BACK_SPACE) || (c == KeyEvent.VK_DELETE)) {
+            evt.consume();
         }
     }
 }
