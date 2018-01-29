@@ -15,10 +15,13 @@ import java.util.concurrent.TimeUnit;
 
 /**
  *
- * @author april nf
+ * @author april nf, ryan Kelas Validate untuk memvalidasi inputan tanggal
  */
 public class ValiDate {
 
+    /**
+     * Deklarasi variabel
+     */
     private int jmlShift, tgl, bln, thn, jumlahHari, tglAwal, blnAwal, thnAwal;
     private Date Tgllahir, Tglshift;
     boolean isValidate = true;
@@ -26,95 +29,235 @@ public class ValiDate {
     Scanner in;
     SimpleDateFormat df;
 
+    /**
+     * Konstruktor
+     */
     public ValiDate() {
         in = new Scanner(System.in);
         df = new SimpleDateFormat("dd/MM/yyyy");
     }
 
+    /**
+     *
+     * @param tgl : inputan tanggal lahir pekerja yang akan digunakan untuk
+     * men-set variabel tgl
+     */
     public void setTgl(int tgl) {
         this.tgl = tgl;
     }
 
+    /**
+     *
+     * @param bln : inputan bulan lahir pekerja yang akan digunakan untuk
+     * men-set variabel bln
+     */
     public void setBln(int bln) {
         this.bln = bln;
     }
 
+    /**
+     *
+     * @param thn : inputan tahun lahir pekerja yang akan digunakan untuk
+     * men-set variabel thn
+     */
     public void setThn(int thn) {
         this.thn = thn;
     }
 
+    /**
+     *
+     * @return Mengembalikan nilai variabel tgl lahir pekerja
+     */
     public int getTgl() {
         return tgl;
     }
 
+    /**
+     *
+     * @return Mengembalikan nilai variabel bln lahir pekerja
+     */
     public int getBln() {
         return bln;
     }
 
+    /**
+     *
+     * @return Mengembalikan nilai variabel thn lahir pekerja
+     */
     public int getThn() {
         return thn;
     }
 
+    /**
+     *
+     * @param tglAwal : inputan tanggal awal shift yang akan digunakan untuk
+     * men-set variabel tglAwal
+     */
     public void setTglAwal(int tglAwal) {
         this.tglAwal = tglAwal;
     }
 
+    /**
+     *
+     * @return Mengembalikan nilai variabel tglAwal (tanggal awal shift)
+     */
     public int getTglAwal() {
         return tglAwal;
     }
 
+    /**
+     *
+     * @param blnAwal : inputan bulan awal shift yang akan digunakan untuk
+     * men-set variabel blnAwal
+     */
     public void setBlnAwal(int blnAwal) {
         this.blnAwal = blnAwal;
     }
 
+    /**
+     *
+     * @return Mengembalikan nilai variabel blnAwal (bulan awal shift)
+     */
     public int getBlnAwal() {
         return blnAwal;
     }
 
+    /**
+     *
+     * @param thnAwal : inputan tahun awal shift yang akan digunakan untuk
+     * men-set variabel thnAwal
+     */
     public void setThnAwal(int thnAwal) {
         this.thnAwal = thnAwal;
     }
 
+    /**
+     *
+     * @return Mengembalikan nilai variabel thnAwal (tahun awal shift)
+     */
     public int getThnAwal() {
         return thnAwal;
     }
 
+    /**
+     *
+     * @param jumlahHari : Men-set variabel jumlah hari berdasarkan bulan yang
+     * diinputkaan yang nantinya akan digunakan untuk validasi agar inputan
+     * tanggal user tidak melebihi/kurang dari jumlah hari dalam bulan
+     */
     public void setJumlahHari(int jumlahHari) {
         this.jumlahHari = jumlahHari;
     }
 
+    /**
+     *
+     * @param Shift : Men-set variabel shift dengan tipe data Date dari inputan
+     * tanggal, bulan, tahun yang diinputkan
+     */
     public void setShift(Date[] Shift) {
         this.Shift = Shift;
     }
 
+    /**
+     *
+     * @return Mengembalikan nilai variabel Shift
+     */
     public Date[] getShift() {
         return Shift;
     }
 
+    /**
+     *
+     * @param jmlShift : inputan berapa banyak jumlah shift dalam hari (inputan
+     * harus 5 sampai 10 hari)
+     */
     public void setJmlShift(int jmlShift) {
         this.jmlShift = jmlShift;
     }
 
+    /**
+     *
+     * @return Mengembalikan nilai variabel jmlShift (jumlah hari shift)
+     */
     public int getJmlShift() {
         return jmlShift;
     }
 
-    public Date getTgllahir() {
-        return Tgllahir;
-    }
-
-    public Date getTglshift() {
-        return Tglshift;
-    }
-
+    /**
+     *
+     * @param Tgllahir : Men-set variabel Tgllahir dari inputan user tgl, bln,
+     * thn lahir yang telah diubah ke dalam format dd/mm/yyyy
+     */
     public void setTgllahir(Date Tgllahir) {
         this.Tgllahir = Tgllahir;
     }
 
+    /**
+     *
+     * @return Mengembalikan nilai variabel Tgllahir dengan tipe data Date dari
+     * inputan user pada varibael tgl, blln, thn lahir
+     */
+    public Date getTgllahir() {
+        return Tgllahir;
+    }
+
+    /**
+     *
+     * @param Tglshift : Men-set variabel Tglshift dari inputan user tgl, bln,
+     * thn shift yang telah diubah ke dalam format dd/mm/yyyy
+     */
     public void setTglshift(Date Tglshift) {
         this.Tglshift = Tglshift;
     }
 
+    /**
+     *
+     * @return Mengembalikan nilai variabel Tglshift dengan tipe data Date dari
+     * inputan user tgl, bln, thn untuk jadwal shift dimulai
+     */
+    public Date getTglshift() {
+        return Tglshift;
+    }
+
+    /**
+     * Method makeShift untuk merequest inputan user pada varibel jumlah shift,
+     * tgl , bln, tahun shift
+     */
+    void makeShift() {
+//        do {
+//            isValidate = true;
+//            try {
+        System.out.println("Masukan jumlah shift: ");
+        jmlShift = in.nextInt();
+        setJmlShift(jmlShift);
+        System.out.println("Masukan tanggal awal shift");
+        tglAwal = in.nextInt();
+        System.out.println("Masukan bulan awal shift");
+        blnAwal = in.nextInt();
+        System.out.println("Masukan tahun awal shift");
+        thnAwal = in.nextInt();
+//            } catch (InputMismatchException er) {
+//                isValidate = false;
+//                System.out.println("Input must be integer");
+//            }
+//        } while (isValidate == false);
+
+//        if (isValidate == true) {
+        HandlingBatasan(tglAwal, blnAwal, thnAwal);
+//        }
+    }
+
+    /**
+     * Method makeAppendShift untuk membentuk Date Shift Pertama menggabungkan
+     * inputan parameter tgl, bln, thn menggunakan fungsi Append Mengubah
+     * inputan user tgl, bln, thn yang bertipe data integer ke dalam tipe data
+     * Date
+     *
+     * @param tgl : inputan parameter tgl lahir
+     * @param bln : inputan parameter bln lahir
+     * @param thn : inputan parameter thn lahir
+     * @return : Mengembalikan nilai variabel Tglshift
+     */
     Date makeAppendShift(int tgl, int bln, int thn) {
         StringBuilder builder = new StringBuilder();
         builder.append(tgl);
@@ -131,31 +274,15 @@ public class ValiDate {
         return Tglshift;
     }
 
-    void makeShift() {
-        do {
-            isValidate = true;
-            try {
-                System.out.println("Masukan jumlah shift: ");
-                jmlShift = in.nextInt();
-                setJmlShift(jmlShift);
-                System.out.println("Masukan tanggal awal shift");
-                tglAwal = in.nextInt();
-                System.out.println("Masukan bulan awal shift");
-                blnAwal = in.nextInt();
-                System.out.println("Masukan tahun awal shift");
-                thnAwal = in.nextInt();
-            } catch (InputMismatchException er) {
-                isValidate = false;
-                System.out.println("Input must be integer");
-            }
-        } while (isValidate == false);
-
-        if (isValidate == true) {
-            HandlingBatasan(tglAwal, blnAwal, thnAwal);
-        }
-
-    }
-
+    /**
+     * Method HandlingBatasan berfungsi untuk menhandling jika inputan user pada
+     * jumlah shift melebihi/kurang dari persyaratan (jumlah hari shift harus 5
+     * sampai 10 hari);
+     *
+     * @param tglAwal : membutuhkan inputan parameter tgl shift
+     * @param blnAwal : membutuhkan inputan parameter bulan shift
+     * @param thnAwal : membutuhkan inputan parameter tahun shift
+     */
     void HandlingBatasan(int tglAwal, int blnAwal, int thnAwal) {
         try {
             if (getJmlShift() < 5 || getJmlShift() > 10) {
@@ -175,6 +302,10 @@ public class ValiDate {
         }
     }
 
+    /**
+     * Method makeBirthDate untuk merequest inputan user pada varibel: tgl ,
+     * bln, tahun lahir pekerja
+     */
     void makeBirthDate() {
         System.out.println("Masukan tanggal lahir pekerja: ");
         setTgl(in.nextInt());
@@ -184,6 +315,9 @@ public class ValiDate {
         setThn(in.nextInt());
     }
 
+    /**
+     * Method validate untuk memvalidasi inputan tgl, bln, tahun
+     */
     public void validate() {
         makeBirthDate();
         switch (bln) {
@@ -215,6 +349,10 @@ public class ValiDate {
         }
     }
 
+    /**
+     * Method check untuk menghandling jika inputan tgl dalam bulan
+     * melebihi/kurang dari jumlah hari dalam suatu bulan
+     */
     void check() {
         try {
             assert (getTgl() <= jumlahHari || getTgl() > 0);
@@ -229,6 +367,10 @@ public class ValiDate {
         }
     }
 
+    /**
+     * Method makeCal untuk membuat tanggal shift sejumlah jumlah hari shift
+     *
+     */
     void makeCal() {
         checkLebih();
         Calendar cal = Calendar.getInstance();
@@ -241,7 +383,14 @@ public class ValiDate {
             setShift(temp);
         }
     }
-
+/**
+ * Method makeAppendforBirth untuk menggabungkan tgl, bln, thn lahir pekerja
+ * kemudian diubah ke dalam format dd/mm/yyyy
+ * @param tgl
+ * @param bln
+ * @param thn
+ * @return 
+ */
     Date makeAppendforBirth(int tgl, int bln, int thn) {
         StringBuilder builder = new StringBuilder();
         builder.append(tgl);
@@ -258,6 +407,11 @@ public class ValiDate {
         return Tgllahir;
     }
 
+    /**
+     * Method cehckLebih untuk menhandling jika date lahir melebihi date shift
+     * misalnya, tgl shift : 1-1-2018, tgl lahir : 1-2-2018 maka jika inputan
+     * seperti tersebut, akan memanggil class CustomException
+     */
     void checkLebih() {
         makeAppendforBirth(getTgl(), getBln(), getThn());
         try {
@@ -270,7 +424,12 @@ public class ValiDate {
             System.out.println(ex.getMessage());
         }
     }
-
+/**
+ * Method Hitung untuk memanggil kelas Biorhythm
+ * jika tanggal shift dan lahir sudah tervalidasi maka dapat dilakukan perhitungan dengan rumus Biorhythms
+ * @param shift
+ * @param sym 
+ */
     public void Hitung(Date shift[], Biorhythms sym) {
         if (isValidate == true) {
             int hari[] = new int[getJmlShift()];
@@ -279,7 +438,7 @@ public class ValiDate {
                 sym.getFisik(hari);
                 sym.getEmosional(hari);
                 sym.getIntelektual(hari);
-                sym.totalSym();
+                sym.getTotal();
             }
         }
     }

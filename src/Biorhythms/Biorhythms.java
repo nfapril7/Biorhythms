@@ -11,7 +11,7 @@ package Biorhythms;
  */
 public class Biorhythms {
 
-    double fisik[], emosional[], intelektual[], total[];
+   protected double fisik[], emosional[], intelektual[], total[];
 
     /**
      * @param args the command line arguments
@@ -47,7 +47,7 @@ public class Biorhythms {
         return intelektual;
     }
 
-    public double [] totalSym() {
+    public double [] getTotal() {
         System.out.println("");
         for (int i = 0; i < total.length; i++) {
             total[i] = fisik[i] + intelektual[i] + emosional[i];

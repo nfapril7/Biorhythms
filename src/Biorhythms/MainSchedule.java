@@ -12,13 +12,12 @@ package Biorhythms;
 public class MainSchedule {
 
     public static void main(String[] args) {
-        // handling jika inputan jmlshift, tgl, bln, thn bukan integer, maka muncul joptionpane bahwa inputan salah 
-
+        // - handling jika inputan jmlshift, tgl, bln, thn bukan integer
         System.out.println("PEKERJA 1");
         ValiDate tanggal = new ValiDate();
-//        do {
-        tanggal.makeShift();
-//        } while (tanggal.isValidate == false);
+        do {
+            tanggal.makeShift();
+        } while (tanggal.isValidate == false);
         do {
             tanggal.validate();
         } while (tanggal.isValidate == false);
