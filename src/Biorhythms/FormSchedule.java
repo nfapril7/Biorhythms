@@ -6,6 +6,7 @@
 package Biorhythms;
 
 import java.awt.event.KeyEvent;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -111,7 +112,15 @@ public class FormSchedule extends javax.swing.JFrame {
             }
         });
 
+        TFjmlHari.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TFjmlHariActionPerformed(evt);
+            }
+        });
         TFjmlHari.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                TFjmlHariKeyReleased(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 TFjmlHariKeyTyped(evt);
             }
@@ -237,7 +246,6 @@ public class FormSchedule extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        v = new ValiDate();
         v.MakeShift(Integer.parseInt(TFtglShift.getText()), Integer.parseInt(TFblnShift.getText()),
                 Integer.parseInt(TFthnShift.getText()), Integer.parseInt(TFjmlHari.getText()));
         v.validate(Integer.parseInt(TFtgl1.getText()), Integer.parseInt(TFbln1.getText()), Integer.parseInt(TFthn1.getText()));
@@ -245,11 +253,13 @@ public class FormSchedule extends javax.swing.JFrame {
         v.Hitung(v.getShift(), s1);
         Pekerja p1 = new Pekerja(v.getJmlShift());
         v2 = new ValiDate();
+        v2.MakeShift(Integer.parseInt(TFtglShift.getText()), Integer.parseInt(TFblnShift.getText()),
+                Integer.parseInt(TFthnShift.getText()), Integer.parseInt(TFjmlHari.getText()));
+        v2 = new ValiDate();
         v2.setJmlShift(v.getJmlShift());
         v2.setTglshift(v.getTglshift());
         v2.validate(Integer.parseInt(TFtgl2.getText()), Integer.parseInt(TFbln2.getText()), Integer.parseInt(TFthn2.getText()));
         Biorhythms s2 = new Biorhythms(v2.getJmlShift());
-
         v2.Hitung(v2.getShift(), s2);
         Pekerja p2 = new Pekerja(v2.getJmlShift());
         p2.perbandingan(s1.total, s2.total, v.getJmlShift(), v);
@@ -295,8 +305,25 @@ public class FormSchedule extends javax.swing.JFrame {
     }//GEN-LAST:event_TFthnShiftKeyTyped
 
     private void TFjmlHariKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TFjmlHariKeyTyped
-        v.validasiKarakter(evt);
+
     }//GEN-LAST:event_TFjmlHariKeyTyped
+
+    private void TFjmlHariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TFjmlHariActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TFjmlHariActionPerformed
+
+    private void TFjmlHariKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TFjmlHariKeyReleased
+        // TODO add your handling code here:
+        int jml = Integer.parseInt(TFjmlHari.getText());
+        if (jml < 5) {
+            JOptionPane.showMessageDialog(null, "Kurang dari persyaratan jumlah hari", "Warning", JOptionPane.INFORMATION_MESSAGE);
+            TFjmlHari.setText("");
+        }
+        if(jml>10){
+            JOptionPane.showMessageDialog(null, "Melebihi persyaratan jumlah hari", "Warning", JOptionPane.INFORMATION_MESSAGE);
+            TFjmlHari.setText("");
+        }
+    }//GEN-LAST:event_TFjmlHariKeyReleased
 
     /**
      * @param args the command line arguments

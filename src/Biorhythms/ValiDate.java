@@ -222,33 +222,6 @@ public class ValiDate {
     public Date getTglshift() {
         return Tglshift;
     }
-
-    /**
-     * Method makeShift untuk merequest inputan user pada varibel jumlah shift,
-     * tgl , bln, tahun shift
-     */
-//    void makeShift() {
-//        do {
-//            isValidate = true;
-//            try {
-//        System.out.println("Masukan jumlah shift: ");
-//        jmlShift = in.nextInt();
-//        setJmlShift(jmlShift);
-//        System.out.println("Masukan tanggal awal shift");
-//        tglAwal = in.nextInt();
-//        System.out.println("Masukan bulan awal shift");
-//        blnAwal = in.nextInt();
-//        System.out.println("Masukan tahun awal shift");
-//        thnAwal = in.nextInt();
-//            } catch (InputMismatchException er) {
-//                isValidate = false;
-//                System.out.println("Input must be integer");
-//            }
-//        } while (isValidate == false);
-//        if (isValidate == true) {
-//        HandlingBatasan(tglAwal, blnAwal, thnAwal);
-//        }
-//    }
     /**
      * Method makeAppendShift untuk membentuk Date Shift Pertama menggabungkan
      * inputan parameter tgl, bln, thn menggunakan fungsi Append Mengubah
@@ -291,8 +264,7 @@ public class ValiDate {
                 isValidate = false;
                 JOptionPane.showMessageDialog(null, "Jumlah shift antara 5 sampai 10 hari",
                         "Warning", JOptionPane.INFORMATION_MESSAGE);
-                throw new CustomException("Jumlah shift antara 5 sampai 10 hari");               
-                
+                throw new CustomException("Jumlah shift antara 5 sampai 10 hari");                
             } else {
                 Shift = new Date[getJmlShift()];
                 setJmlShift(jmlShift);
@@ -311,14 +283,6 @@ public class ValiDate {
      * Method makeBirthDate untuk merequest inputan user pada varibel: tgl ,
      * bln, tahun lahir pekerja
      */
-    void makeBirthDate() {
-        System.out.println("Masukan tanggal lahir pekerja: ");
-        setTgl(in.nextInt());
-        System.out.println("Masukan bulan lahir pekerja: ");
-        setBln(in.nextInt());
-        System.out.println("Masukan tahun lahir pekerja: ");
-        setThn(in.nextInt());
-    }
 
     /**
      * Method validate untuk memvalidasi inputan tgl, bln, tahun
@@ -361,7 +325,6 @@ public class ValiDate {
      * melebihi/kurang dari jumlah hari dalam suatu bulan
      */
     void check() {
-        System.out.println("yap");
         try {
             assert (getTgl() <= jumlahHari || getTgl() > 0);
             if (getTgl() > jumlahHari || getTgl() < 0) {
@@ -448,7 +411,6 @@ public class ValiDate {
         if (isValidate == true) {
             int hari[] = new int[getJmlShift()];
             for (int i = 0; i < hari.length; i++) {
-//                System.out.println(shift[i].getTime());
                 hari[i] = (int) TimeUnit.MILLISECONDS.toDays((shift[i].getTime() - getTgllahir().getTime()));
                 sym.getFisik(hari);
                 sym.getEmosional(hari);

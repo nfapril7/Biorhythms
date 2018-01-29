@@ -30,6 +30,7 @@ public class Pekerja extends Biorhythms {
      * terpilih pada masing-masing jadwal shift
      */
     public String[] perbandingan(double BiorithmsPekerja1[], double BiorithmsPekerja2[], int jumlahshift, ValiDate v) {
+        System.out.println("PERBANDINGAN");
         String pilih[] = new String[jumlahshift];
         for (int i = 0; i < jumlahshift; i++) {
             if (BiorithmsPekerja1[i] > BiorithmsPekerja2[i]) {
@@ -37,7 +38,7 @@ public class Pekerja extends Biorhythms {
             } else {
                 pilih[i] = "Pekerja 2";
             }
-            System.out.println(v.Shift[i] + " : " + pilih[i]);
+            System.out.println(v.Shift[i] + " -- " + pilih[i]);
         }
         return pilih;
     }
