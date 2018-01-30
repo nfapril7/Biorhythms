@@ -15,7 +15,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class Biorhythms {
 
-   protected double fisik[], emosional[], intelektual[], total[];
+    protected double fisik[], emosional[], intelektual[], total[];
 
     /**
      * @param args the command line arguments
@@ -51,27 +51,35 @@ public class Biorhythms {
         return intelektual;
     }
 
-    public double [] getTotal() {
+    public double[] getTotal() {
         System.out.println("");
         for (int i = 0; i < total.length; i++) {
             total[i] = fisik[i] + intelektual[i] + emosional[i];
-            System.out.println(i+ "Total " + total[i]);
+            System.out.println(i + "Total " + total[i]);
         }
         return total;
     }
-    
-    public void table(Biorhythms a, Biorhythms b, javax.swing.JTable jTable1, int jumlahshift, ValiDate v){
-            List<Object> list = new ArrayList<>();
-        for (int i = 0; i < jumlahshift; i++) {
-            list.add(new Object[]{v.Shift[i], pilih[i]});
-        }
 
+    public void table(Biorhythms b1, Biorhythms b2, javax.swing.JTable jTable1, javax.swing.JTable jTable2, int jumlahshift, ValiDate v) {
+        List<Object> list = new ArrayList<>();
+        List<Object> list2 = new ArrayList<>();
+        for (int i = 0; i < jumlahshift; i++) {
+            list.add(new Object[]{v.Shift[i], b1.fisik[i], b1.emosional[i], b1.intelektual[i], b1.total[i]});
+            list2.add(new Object[]{v.Shift[i], b2.fisik[i], b2.emosional[i], b2.intelektual[i], b2.total[i]});
+        }
         DefaultTableModel model = new DefaultTableModel();
-        model.setColumnIdentifiers(new Object[]{"Tanggal", "Nama"});
+        DefaultTableModel model2 = new DefaultTableModel();
+        model.setColumnIdentifiers(new Object[]{"Tanggal", "Fisik", "Emosional", "Intelektual", "Total"});
+        model2.setColumnIdentifiers(new Object[]{"Tanggal", "Fisik", "Emosional", "Intelektual", "Total"});
         for (Object obj : list) {
             model.addRow((Object[]) obj);
         }
         jTable1.setModel(model);
+
+        for (Object obj : list2) {
+            model2.addRow((Object[]) obj);
+        }
+        jTable2.setModel(model2);
     }
 
 }

@@ -57,9 +57,9 @@ public class FormSchedule extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        jTbDetail1 = new javax.swing.JTable();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTable3 = new javax.swing.JTable();
+        jTbDetail2 = new javax.swing.JTable();
 
         jLabel5.setText("jLabel5");
 
@@ -289,7 +289,7 @@ public class FormSchedule extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Jadwal", jPanel1);
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        jTbDetail1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -300,9 +300,9 @@ public class FormSchedule extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable2);
+        jScrollPane1.setViewportView(jTbDetail1);
 
-        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+        jTbDetail2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -313,7 +313,7 @@ public class FormSchedule extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane3.setViewportView(jTable3);
+        jScrollPane3.setViewportView(jTbDetail2);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -369,8 +369,8 @@ public class FormSchedule extends javax.swing.JFrame {
         v.MakeShift(Integer.parseInt(TFtglShift.getText()), Integer.parseInt(TFblnShift.getText()),
                 Integer.parseInt(TFthnShift.getText()), Integer.parseInt(TFjmlHari.getText()));
         v.validate(Integer.parseInt(TFtgl1.getText()), Integer.parseInt(TFbln1.getText()), Integer.parseInt(TFthn1.getText()));
-        Biorhythms s1 = new Biorhythms(v.getJmlShift());
-        v.Hitung(v.getShift(), s1);
+        Biorhythms b1 = new Biorhythms(v.getJmlShift());
+        v.Hitung(v.getShift(), b1);
         Pekerja p1 = new Pekerja(v.getJmlShift());
         v2 = new ValiDate();
         v2.MakeShift(Integer.parseInt(TFtglShift.getText()), Integer.parseInt(TFblnShift.getText()),
@@ -379,11 +379,12 @@ public class FormSchedule extends javax.swing.JFrame {
         v2.setJmlShift(v.getJmlShift());
         v2.setTglshift(v.getTglshift());
         v2.validate(Integer.parseInt(TFtgl2.getText()), Integer.parseInt(TFbln2.getText()), Integer.parseInt(TFthn2.getText()));
-        Biorhythms s2 = new Biorhythms(v2.getJmlShift());
-        v2.Hitung(v2.getShift(), s2);
+        Biorhythms b2 = new Biorhythms(v2.getJmlShift());
+        v2.Hitung(v2.getShift(), b2);
         Pekerja p2 = new Pekerja(v2.getJmlShift());
-        p2.perbandingan(s1.total, s2.total, v.getJmlShift(), v, jTable1);
+        p2.perbandingan(b1.total, b2.total, v.getJmlShift(), v, jTable1);
 
+        b2.table(b1, b2, jTbDetail1, jTbDetail2, v.getJmlShift(), v);
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -439,18 +440,18 @@ public class FormSchedule extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Kurang dari persyaratan jumlah hari", "Warning", JOptionPane.INFORMATION_MESSAGE);
             TFjmlHari.setText("");
         }
-        if(jml>10){
+        if (jml > 10) {
             JOptionPane.showMessageDialog(null, "Melebihi persyaratan jumlah hari", "Warning", JOptionPane.INFORMATION_MESSAGE);
             TFjmlHari.setText("");
         }
     }//GEN-LAST:event_TFjmlHariKeyReleased
 
     private void TFtgl1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TFtgl1KeyReleased
-       v.validasiJumlah(evt, TFtgl1, 2, 1);
+        v.validasiJumlah(evt, TFtgl1, 2, 1);
     }//GEN-LAST:event_TFtgl1KeyReleased
 
     private void TFbln1AncestorMoved(java.awt.event.HierarchyEvent evt) {//GEN-FIRST:event_TFbln1AncestorMoved
-        
+
     }//GEN-LAST:event_TFbln1AncestorMoved
 
     private void TFthn1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TFthn1KeyReleased
@@ -550,7 +551,7 @@ public class FormSchedule extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
-    private javax.swing.JTable jTable3;
+    private javax.swing.JTable jTbDetail1;
+    private javax.swing.JTable jTbDetail2;
     // End of variables declaration//GEN-END:variables
 }
