@@ -6,6 +6,7 @@
 package Biorhythms;
 
 import java.awt.event.KeyEvent;
+import java.text.SimpleDateFormat;
 import javax.swing.JOptionPane;
 
 /**
@@ -62,12 +63,23 @@ public class FormSchedule extends javax.swing.JFrame {
         jTbDetail2 = new javax.swing.JTable();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jTFlahir1 = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
+        jTFlahir2 = new javax.swing.JTextField();
 
         jLabel5.setText("jLabel5");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jLabel7.setFont(new java.awt.Font("SimSun-ExtB", 0, 18)); // NOI18N
         jLabel7.setText("PENJADWALAN SHIFT KARYAWAN DENGAN BIORHYTMS");
+
+        jPanel1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jPanel1KeyReleased(evt);
+            }
+        });
 
         jLabel1.setText("Tanggal Lahir Pekerja 1");
 
@@ -82,6 +94,7 @@ public class FormSchedule extends javax.swing.JFrame {
 
             }
         ));
+        jTable1.setEnabled(false);
         jScrollPane2.setViewportView(jTable1);
 
         TFtgl1.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -121,6 +134,9 @@ public class FormSchedule extends javax.swing.JFrame {
         jLabel2.setText("Tanggal Lahir Pekerja 2");
 
         TFtgl2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                TFtgl2KeyPressed(evt);
+            }
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 TFtgl2KeyReleased(evt);
             }
@@ -243,6 +259,7 @@ public class FormSchedule extends javax.swing.JFrame {
                                         .addComponent(TFbln1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
                                         .addComponent(TFthn1, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jLabel6)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(TFbln2, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
@@ -250,11 +267,10 @@ public class FormSchedule extends javax.swing.JFrame {
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(TFblnShift, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
-                                        .addComponent(TFthnShift, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jLabel6)))
+                                        .addComponent(TFthnShift, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(122, 122, 122)
-                                .addComponent(jButton1)))
+                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -280,17 +296,17 @@ public class FormSchedule extends javax.swing.JFrame {
                         .addComponent(TFtglShift, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(TFblnShift, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(TFthnShift, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(28, 28, 28)
+                .addGap(12, 12, 12)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(TFjmlHari, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel6)))
-                .addGap(18, 18, 18)
-                .addComponent(jButton1)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(84, Short.MAX_VALUE))
+                .addGap(55, 55, 55))
         );
 
         jTabbedPane1.addTab("Jadwal", jPanel1);
@@ -306,6 +322,7 @@ public class FormSchedule extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jTbDetail1.setEnabled(false);
         jScrollPane1.setViewportView(jTbDetail1);
 
         jTbDetail2.setModel(new javax.swing.table.DefaultTableModel(
@@ -319,11 +336,20 @@ public class FormSchedule extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jTbDetail2.setEnabled(false);
         jScrollPane3.setViewportView(jTbDetail2);
 
         jLabel8.setText("PEKERJA 1");
 
         jLabel9.setText("PEKERJA 2");
+
+        jLabel10.setText("Tanggal lahir:");
+
+        jTFlahir1.setEditable(false);
+
+        jLabel12.setText("Tanggal lahir:");
+
+        jTFlahir2.setEditable(false);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -331,13 +357,24 @@ public class FormSchedule extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 427, Short.MAX_VALUE)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel8)
-                            .addComponent(jLabel9))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                            .addComponent(jLabel9)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addComponent(jLabel10)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jTFlahir1, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addComponent(jLabel12)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jTFlahir2, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addGap(0, 124, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -345,12 +382,20 @@ public class FormSchedule extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(7, 7, 7)
                 .addComponent(jLabel8)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
+                .addGap(13, 13, 13)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel10)
+                    .addComponent(jTFlahir1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel9)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel12)
+                    .addComponent(jTFlahir2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(44, 44, 44))
         );
 
@@ -366,16 +411,16 @@ public class FormSchedule extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 442, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(88, 88, 88)
+                        .addGap(45, 45, 45)
                         .addComponent(jLabel7)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
                 .addComponent(jLabel7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 473, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -385,24 +430,46 @@ public class FormSchedule extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        v.MakeShift(Integer.parseInt(TFtglShift.getText()), Integer.parseInt(TFblnShift.getText()),
-                Integer.parseInt(TFthnShift.getText()), Integer.parseInt(TFjmlHari.getText()));
-        v.validate(Integer.parseInt(TFtgl1.getText()), Integer.parseInt(TFbln1.getText()), Integer.parseInt(TFthn1.getText()));
-        Biorhythms b1 = new Biorhythms(v.getJmlShift());
-        v.Hitung(v.getShift(), b1);
-        Pekerja p1 = new Pekerja(v.getJmlShift());
-        v2 = new ValiDate();
-        v2.MakeShift(Integer.parseInt(TFtglShift.getText()), Integer.parseInt(TFblnShift.getText()),
-                Integer.parseInt(TFthnShift.getText()), Integer.parseInt(TFjmlHari.getText()));
-        v2 = new ValiDate();
-        v2.setJmlShift(v.getJmlShift());
-        v2.setTglshift(v.getTglshift());
-        v2.validate(Integer.parseInt(TFtgl2.getText()), Integer.parseInt(TFbln2.getText()), Integer.parseInt(TFthn2.getText()));
-        Biorhythms b2 = new Biorhythms(v2.getJmlShift());
-        v2.Hitung(v2.getShift(), b2);
-        Pekerja p2 = new Pekerja(v2.getJmlShift());
-        p2.perbandingan(b1.total, b2.total, v.getJmlShift(), v, jTable1);
-        b2.table(b1, b2, jTbDetail1, jTbDetail2, v.getJmlShift(), v);
+        try {
+            v.MakeShift(Integer.parseInt(TFtglShift.getText()), Integer.parseInt(TFblnShift.getText()),
+                    Integer.parseInt(TFthnShift.getText()), Integer.parseInt(TFjmlHari.getText()));
+            v.validate(Integer.parseInt(TFtglShift.getText()), Integer.parseInt(TFblnShift.getText()), Integer.parseInt(TFthnShift.getText()));
+            if (v.isValidate == true) {
+                v.validate(Integer.parseInt(TFtgl1.getText()), Integer.parseInt(TFbln1.getText()), Integer.parseInt(TFthn1.getText()));
+                Biorhythms b1 = new Biorhythms(v.getJmlShift());
+                if (v.isValidate == true) {
+                    v2 = new ValiDate();
+                    v2.setJmlShift(v.getJmlShift());
+                    v2.setTglshift(v.getTglshift());
+                    v2.validate(Integer.parseInt(TFtgl2.getText()), Integer.parseInt(TFbln2.getText()), Integer.parseInt(TFthn2.getText()));
+                    Biorhythms b2 = new Biorhythms(v2.getJmlShift());
+                    if (v2.isValidate == true) {
+                        v.makeCal();
+                        v.Hitung(v.getShift(), b1);
+                        Pekerja p1 = new Pekerja(v.getJmlShift());
+                        v2.makeCal();
+                        v2.Hitung(v2.getShift(), b2);
+                        Pekerja p2 = new Pekerja(v2.getJmlShift());
+                        p2.perbandingan(b1.total, b2.total, v.getJmlShift(), v, jTable1);
+                        b2.table(b1, b2, jTbDetail1, jTbDetail2, v.getJmlShift(), v);
+                        jTFlahir1.setText(String.valueOf(v.getTgllahir()));
+                        jTFlahir2.setText(String.valueOf(v2.getTgllahir()));
+                    } else {
+                        JOptionPane.showMessageDialog(null, new CustomException("Validasi gagal"),
+                                "Warning", JOptionPane.INFORMATION_MESSAGE);
+                        setNull();
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(null, new CustomException("Validasi gagal"), "Warning", JOptionPane.INFORMATION_MESSAGE);
+                    setNull();
+                }
+            } else {
+                setNull();
+            }
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(null, "Data tidak boleh null",
+                    "Warning", JOptionPane.INFORMATION_MESSAGE);
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void TFtgl1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TFtgl1KeyTyped
@@ -452,20 +519,14 @@ public class FormSchedule extends javax.swing.JFrame {
 
     private void TFjmlHariKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TFjmlHariKeyReleased
         // TODO add your handling code here:
-        v.validasiKarakter(evt);
-        int jml = Integer.parseInt(TFjmlHari.getText());
-        if (jml < 5) {
-            JOptionPane.showMessageDialog(null, "Kurang dari persyaratan jumlah hari", "Warning", JOptionPane.INFORMATION_MESSAGE);
-            TFjmlHari.setText("");
-        }
-        if (jml > 10) {
-            JOptionPane.showMessageDialog(null, "Melebihi persyaratan jumlah hari", "Warning", JOptionPane.INFORMATION_MESSAGE);
-            TFjmlHari.setText("");
-        }
+        v.validasiBatas(evt, TFjmlHari, 10, 5);
     }//GEN-LAST:event_TFjmlHariKeyReleased
 
     private void TFtgl1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TFtgl1KeyReleased
         v.validasiJumlah(evt, TFtgl1, 2, 1);
+        if (TFtgl1.getText().isEmpty()) {
+            jButton1.disable();
+        }
     }//GEN-LAST:event_TFtgl1KeyReleased
 
     private void TFbln1AncestorMoved(java.awt.event.HierarchyEvent evt) {//GEN-FIRST:event_TFbln1AncestorMoved
@@ -474,10 +535,14 @@ public class FormSchedule extends javax.swing.JFrame {
 
     private void TFthn1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TFthn1KeyReleased
         v.validasiJumlah(evt, TFthn1, 4, 1);
+        if (TFthn1.getText().isEmpty()) {
+            jButton1.disable();
+        }
     }//GEN-LAST:event_TFthn1KeyReleased
 
     private void TFbln1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TFbln1KeyReleased
         v.validasiJumlah(evt, TFbln1, 2, 1);
+        v.validasiBatas(evt, TFbln1, 12, 1);
     }//GEN-LAST:event_TFbln1KeyReleased
 
     private void TFtgl2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TFtgl2KeyReleased
@@ -486,6 +551,7 @@ public class FormSchedule extends javax.swing.JFrame {
 
     private void TFbln2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TFbln2KeyReleased
         v.validasiJumlah(evt, TFbln2, 2, 1);
+        v.validasiBatas(evt, TFbln2, 12, 1);
     }//GEN-LAST:event_TFbln2KeyReleased
 
     private void TFtglShiftKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TFtglShiftKeyReleased
@@ -494,6 +560,7 @@ public class FormSchedule extends javax.swing.JFrame {
 
     private void TFblnShiftKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TFblnShiftKeyReleased
         v.validasiJumlah(evt, TFblnShift, 2, 1);
+        v.validasiBatas(evt, TFblnShift, 12, 1);
     }//GEN-LAST:event_TFblnShiftKeyReleased
 
     private void TFthn2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TFthn2KeyReleased
@@ -511,6 +578,30 @@ public class FormSchedule extends javax.swing.JFrame {
     private void TFthnShiftActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TFthnShiftActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_TFthnShiftActionPerformed
+
+    private void jPanel1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPanel1KeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPanel1KeyReleased
+
+    private void TFtgl2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TFtgl2KeyPressed
+        // TODO add your handling code here:
+        if (TFtgl2.getText().isEmpty()) {
+            jButton1.disable();
+        }
+    }//GEN-LAST:event_TFtgl2KeyPressed
+
+    public void setNull() {
+        TFtgl1.setText("");
+        TFbln1.setText("");
+        TFthn1.setText("");
+        TFtglShift.setText("");
+        TFblnShift.setText("");
+        TFthnShift.setText("");
+        TFtgl2.setText("");
+        TFbln2.setText("");
+        TFthn2.setText("");
+        TFjmlHari.setText("");
+    }
 
     /**
      * @param args the command line arguments
@@ -560,6 +651,8 @@ public class FormSchedule extends javax.swing.JFrame {
     private javax.swing.JTextField TFthnShift;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -573,6 +666,8 @@ public class FormSchedule extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JTextField jTFlahir1;
+    private javax.swing.JTextField jTFlahir2;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTbDetail1;
