@@ -6,6 +6,7 @@
 package Biorhythms;
 
 import java.awt.event.KeyEvent;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.JTextField;
 import org.junit.After;
@@ -105,10 +106,12 @@ public class ValiDateTest {
      */
     @Test
     public void testMakeAppendforBirth() {
+        SimpleDateFormat d = new SimpleDateFormat("dd/mm/yyyy");
         System.out.println("makeAppendforBirth");
         ValiDate instance = new ValiDate();
         Date result = instance.makeAppendforBirth(10, 12, 1998);
-        assertEquals("10/12/1998", result);
+        String dateString = d.format(result);
+        assertEquals("10/12/1998", dateString);
         
     }
 

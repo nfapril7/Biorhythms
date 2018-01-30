@@ -37,7 +37,7 @@ public class ValiDate {
      */
     public ValiDate() {
         in = new Scanner(System.in);
-        df = new SimpleDateFormat("dd/MM/yyyy");
+        df = new SimpleDateFormat("dd/mm/yyyy");
     }
 
     /**
@@ -162,7 +162,7 @@ public class ValiDate {
      * tanggal, bulan, tahun yang diinputkan
      */
     public void setShift(Date[] Shift) {
-        System.out.println("yyyyy");
+        
         this.Shift = Shift;
     }
 
@@ -171,7 +171,7 @@ public class ValiDate {
      * @return Mengembalikan nilai variabel Shift
      */
     public Date[] getShift() {
-        System.out.println("ooo");
+        
         return Shift;
     }
 
