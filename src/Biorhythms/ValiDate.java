@@ -5,6 +5,7 @@
  */
 package Biorhythms;
 
+import java.awt.TextField;
 import java.awt.event.KeyEvent;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -151,6 +152,10 @@ public class ValiDate {
         this.jumlahHari = jumlahHari;
     }
 
+    public int getJumlahHari() {
+        return jumlahHari;
+    }
+
     /**
      *
      * @param Shift : Men-set variabel shift dengan tipe data Date dari inputan
@@ -222,6 +227,7 @@ public class ValiDate {
     public Date getTglshift() {
         return Tglshift;
     }
+
     /**
      * Method makeAppendShift untuk membentuk Date Shift Pertama menggabungkan
      * inputan parameter tgl, bln, thn menggunakan fungsi Append Mengubah
@@ -264,7 +270,7 @@ public class ValiDate {
                 isValidate = false;
                 JOptionPane.showMessageDialog(null, "Jumlah shift antara 5 sampai 10 hari",
                         "Warning", JOptionPane.INFORMATION_MESSAGE);
-                throw new CustomException("Jumlah shift antara 5 sampai 10 hari");                
+                throw new CustomException("Jumlah shift antara 5 sampai 10 hari");
             } else {
                 Shift = new Date[getJmlShift()];
                 setJmlShift(jmlShift);
@@ -283,14 +289,10 @@ public class ValiDate {
      * Method makeBirthDate untuk merequest inputan user pada varibel: tgl ,
      * bln, tahun lahir pekerja
      */
-
     /**
      * Method validate untuk memvalidasi inputan tgl, bln, tahun
      */
     public void validate(int tgl, int bln, int thn) {
-        setTgl(tgl);
-        setBln(bln);
-        setThn(thn);
         switch (bln) {
             case 1:
             case 3:
@@ -300,19 +302,19 @@ public class ValiDate {
             case 10:
             case 12:
                 setJumlahHari(31);
-                check();
+                check(tgl, bln, thn);
                 break;
             case 2:
                 int jumlah = thn % 4 == 0 ? 29 : 28;
                 setJumlahHari(jumlah);
-                check();
+                check(tgl, bln, thn);
                 break;
             case 4:
             case 6:
             case 9:
             case 11:
                 setJumlahHari(30);
-                check();
+                check(tgl, bln, thn);
                 break;
             default:
                 System.out.println("Data tanggal yang Anda masukan salah" + getTgl() + " - " + getBln() + " - " + getThn());
@@ -324,17 +326,20 @@ public class ValiDate {
      * Method check untuk menghandling jika inputan tgl dalam bulan
      * melebihi/kurang dari jumlah hari dalam suatu bulan
      */
-    void check() {
+    void check(int tgl, int bln, int thn) {
         try {
-            assert (getTgl() <= jumlahHari || getTgl() > 0);
-            if (getTgl() > jumlahHari || getTgl() < 0) {
+            assert (tgl <= getJumlahHari() || tgl > 0);
+            if (tgl > getJumlahHari() || tgl < 0) {
                 isValidate = false;
                 JOptionPane.showMessageDialog(null, new CustomException("Input data tanggal salah"),
                         "Warning", JOptionPane.INFORMATION_MESSAGE);
                 throw new CustomException("Input data tanggal salah");
             }
             isValidate = true;
-            makeCal();
+            setTgl(tgl);
+            setBln(bln);
+            setThn(thn);
+//            makeCal();
         } catch (CustomException ex) {
             System.out.println(ex.getMessage());
         }
@@ -345,7 +350,6 @@ public class ValiDate {
      *
      */
     void makeCal() {
-        System.out.println("ya");
         checkLebih();
         Calendar cal = Calendar.getInstance();
         Date[] temp = new Date[getJmlShift()];
@@ -393,7 +397,7 @@ public class ValiDate {
         try {
             if (getTgllahir().after(getTglshift()) || getTgllahir().equals(getTglshift())) {
                 isValidate = false;
-                JOptionPane.showMessageDialog(null, "Tanggal lahir tidak diperbolehkan melebihi tanggal shift",
+                JOptionPane.showMessageDialog(null, new CustomException("Tanggal lahir tidak diperbolehkan melebihi tanggal shift"),
                         "Warning", JOptionPane.INFORMATION_MESSAGE);
                 throw new CustomException("Tanggal lahir tidak diperbolehkan melebihi tanggal shift");
             }
@@ -423,24 +427,54 @@ public class ValiDate {
             }
         }
     }
+
     /**
-     * 
-     * @param evt variabel untuk menset objek dari keyevent
-     * method validasiKarakter digunakan untuk validasi agar tidak bisa menginputkan selain integer
+     *
+     * @param evt variabel untuk menset objek dari keyevent method
+     * validasiKarakter digunakan untuk validasi agar tidak bisa menginputkan
+     * selain integer
      */
-    public void validasiKarakter(java.awt.event.KeyEvent evt){
+    public void validasiKarakter(java.awt.event.KeyEvent evt) {
         char c = evt.getKeyChar();
-        if (!(Character.isDigit(c)) || (c == KeyEvent.VK_BACK_SPACE) || (c == KeyEvent.VK_DELETE) ) {
-            evt.consume();
+        try {
+            if (!(Character.isDigit(c)) || (c == KeyEvent.VK_BACK_SPACE) || (c == KeyEvent.VK_DELETE)) {
+                evt.consume();
+            }
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(null, "Data tidak boleh null",
+                    "Warning", JOptionPane.INFORMATION_MESSAGE);
         }
     }
-    public void validasiJumlah(java.awt.event.KeyEvent evt, javax.swing.JTextField jTField, int batas_atas, int batas_bawah){
+
+    public void validasiJumlah(java.awt.event.KeyEvent evt, javax.swing.JTextField jTField, int batas_atas, int batas_bawah) {
         String c = jTField.getText();
-        if (c.length() > batas_atas) {
-            jTField.setText("");
+        try {
+            if (c.length() > batas_atas) {
+                jTField.setText("");
+            }
+            if (c.length() < batas_bawah) {
+                jTField.setText("");
+            }
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(null, "Data tidak boleh null",
+                    "Warning", JOptionPane.INFORMATION_MESSAGE);
         }
-        if (c.length() < batas_bawah) {
-            jTField.setText("");
+    }
+
+    public void validasiBatas(java.awt.event.KeyEvent evt, javax.swing.JTextField jTField, int batas_atas, int batas_bawah) {
+        String jml = (jTField.getText());
+        try {
+            if (Integer.parseInt(jml) < batas_bawah) {
+                JOptionPane.showMessageDialog(null, "Kurang kondisi", "Warning", JOptionPane.INFORMATION_MESSAGE);
+                jTField.setText("");
+            }
+            if (Integer.parseInt(jml) > batas_atas) {
+                JOptionPane.showMessageDialog(null, "Melebihi kondisi", "Warning", JOptionPane.INFORMATION_MESSAGE);
+                jTField.setText("");
+            }
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(null, "Data tidak boleh null",
+                    "Warning", JOptionPane.INFORMATION_MESSAGE);
         }
     }
 }
