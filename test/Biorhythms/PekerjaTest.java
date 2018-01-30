@@ -44,17 +44,24 @@ public class PekerjaTest {
     @Test
     public void testPerbandingan() {
         System.out.println("perbandingan");
-        double[] BiorithmsPekerja1 = null;
-        double[] BiorithmsPekerja2 = null;
-        int jumlahshift = 0;
-        ValiDate v = null;
-        JTable jTable1 = null;
-        Pekerja instance = null;
+        ValiDate validate1 = new ValiDate();
+        ValiDate validate2 = new ValiDate();
+        validate1.MakeShift(29, 12, 2020, 6);
+        validate1.validate(2, 2, 1995);
+        validate2.validate(3, 3, 1991);
+        validate2.MakeShift(29, 10, 2020, 6);
+        Biorhythms b1 = new Biorhythms(validate1.getJmlShift());
+        validate1.Hitung(validate1.getShift(), b1);
+        Pekerja p1 = new Pekerja(validate1.getJmlShift());
+        Biorhythms b2 = new Biorhythms(validate2.getJmlShift());
+        validate2.Hitung(validate2.getShift(), b2);
+        Pekerja p2 = new Pekerja(validate2.getJmlShift());
+        JTable jTable1 = new JTable();
         String[] expResult = null;
-        String[] result = instance.perbandingan(BiorithmsPekerja1, BiorithmsPekerja2, jumlahshift, v, jTable1);
+        String[] result = p2.perbandingan(b1.total, b2.total, validate1.getJmlShift(), validate1, jTable1);
         assertArrayEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
+        
     }
     
 }

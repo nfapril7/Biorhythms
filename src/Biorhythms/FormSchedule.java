@@ -22,8 +22,15 @@ public class FormSchedule extends javax.swing.JFrame {
      */
     public FormSchedule() {
         initComponents();
+        
     }
-
+    public void change(){
+        if (TFbln1.getText().equals("") || TFbln2.getText().equals("") || TFtgl1.getText().equals("") || TFtgl2.getText().equals("") || TFtglShift.getText().equals("") || TFblnShift.getText().equals("") || TFthnShift.getText().equals("") || TFthn1.getText().equals("") || TFthn2.getText().equals("") || TFjmlHari.getText().equals("")) {
+            jButton1.setEnabled(false);
+        } else {
+            jButton1.setEnabled(true);
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -385,6 +392,7 @@ public class FormSchedule extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+
         v.MakeShift(Integer.parseInt(TFtglShift.getText()), Integer.parseInt(TFblnShift.getText()),
                 Integer.parseInt(TFthnShift.getText()), Integer.parseInt(TFjmlHari.getText()));
         v.validate(Integer.parseInt(TFtgl1.getText()), Integer.parseInt(TFbln1.getText()), Integer.parseInt(TFthn1.getText()));
@@ -521,6 +529,7 @@ public class FormSchedule extends javax.swing.JFrame {
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
+
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -542,6 +551,7 @@ public class FormSchedule extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
+
                 new FormSchedule().setVisible(true);
             }
         });
