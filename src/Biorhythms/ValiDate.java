@@ -426,8 +426,17 @@ public class ValiDate {
      */
     public void validasiKarakter(java.awt.event.KeyEvent evt){
         char c = evt.getKeyChar();
-        if (!(Character.isDigit(c)) || (c == KeyEvent.VK_BACK_SPACE) || (c == KeyEvent.VK_DELETE)) {
+        if (!(Character.isDigit(c)) || (c == KeyEvent.VK_BACK_SPACE) || (c == KeyEvent.VK_DELETE) ) {
             evt.consume();
+        }
+    }
+    public void validasiJumlah(java.awt.event.KeyEvent evt, javax.swing.JTextField jTField, int batas_atas, int batas_bawah){
+        String c = jTField.getText();
+        if (c.length() > batas_atas) {
+            jTField.setText("");
+        }
+        if (c.length() < batas_bawah) {
+            jTField.setText("");
         }
     }
 }

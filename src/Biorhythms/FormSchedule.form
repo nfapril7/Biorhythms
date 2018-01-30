@@ -133,46 +133,56 @@
   <SubComponents>
     <Component class="javax.swing.JTextField" name="TFtgl1">
       <Events>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="TFtgl1KeyReleased"/>
         <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="TFtgl1KeyTyped"/>
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="TFbln1">
       <Events>
+        <EventHandler event="ancestorMoved" listener="java.awt.event.HierarchyBoundsListener" parameters="java.awt.event.HierarchyEvent" handler="TFbln1AncestorMoved"/>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="TFbln1KeyReleased"/>
         <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="TFbln1KeyTyped"/>
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="TFthn1">
       <Events>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="TFthn1KeyReleased"/>
         <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="TFthn1KeyTyped"/>
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="TFtgl2">
       <Events>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="TFtgl2KeyReleased"/>
         <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="TFtgl2KeyTyped"/>
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="TFbln2">
       <Events>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="TFbln2KeyReleased"/>
         <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="TFbln2KeyTyped"/>
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="TFthn2">
       <Events>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="TFthn2KeyReleased"/>
         <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="TFthn2KeyTyped"/>
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="TFtglShift">
       <Events>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="TFtglShiftKeyReleased"/>
         <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="TFtglShiftKeyTyped"/>
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="TFblnShift">
       <Events>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="TFblnShiftKeyReleased"/>
         <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="TFblnShiftKeyTyped"/>
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="TFthnShift">
       <Events>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="TFthnShiftKeyReleased"/>
         <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="TFthnShiftKeyTyped"/>
       </Events>
     </Component>

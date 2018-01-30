@@ -59,54 +59,88 @@ public class FormSchedule extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         TFtgl1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                TFtgl1KeyReleased(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 TFtgl1KeyTyped(evt);
             }
         });
 
+        TFbln1.addHierarchyBoundsListener(new java.awt.event.HierarchyBoundsListener() {
+            public void ancestorMoved(java.awt.event.HierarchyEvent evt) {
+                TFbln1AncestorMoved(evt);
+            }
+            public void ancestorResized(java.awt.event.HierarchyEvent evt) {
+            }
+        });
         TFbln1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                TFbln1KeyReleased(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 TFbln1KeyTyped(evt);
             }
         });
 
         TFthn1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                TFthn1KeyReleased(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 TFthn1KeyTyped(evt);
             }
         });
 
         TFtgl2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                TFtgl2KeyReleased(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 TFtgl2KeyTyped(evt);
             }
         });
 
         TFbln2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                TFbln2KeyReleased(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 TFbln2KeyTyped(evt);
             }
         });
 
         TFthn2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                TFthn2KeyReleased(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 TFthn2KeyTyped(evt);
             }
         });
 
         TFtglShift.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                TFtglShiftKeyReleased(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 TFtglShiftKeyTyped(evt);
             }
         });
 
         TFblnShift.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                TFblnShiftKeyReleased(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 TFblnShiftKeyTyped(evt);
             }
         });
 
         TFthnShift.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                TFthnShiftKeyReleased(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 TFthnShiftKeyTyped(evt);
             }
@@ -324,6 +358,46 @@ public class FormSchedule extends javax.swing.JFrame {
             TFjmlHari.setText("");
         }
     }//GEN-LAST:event_TFjmlHariKeyReleased
+
+    private void TFtgl1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TFtgl1KeyReleased
+       v.validasiJumlah(evt, TFtgl1, 2, 1);
+    }//GEN-LAST:event_TFtgl1KeyReleased
+
+    private void TFbln1AncestorMoved(java.awt.event.HierarchyEvent evt) {//GEN-FIRST:event_TFbln1AncestorMoved
+        
+    }//GEN-LAST:event_TFbln1AncestorMoved
+
+    private void TFthn1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TFthn1KeyReleased
+        v.validasiJumlah(evt, TFthn1, 4, 1);
+    }//GEN-LAST:event_TFthn1KeyReleased
+
+    private void TFbln1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TFbln1KeyReleased
+        v.validasiJumlah(evt, TFbln1, 2, 1);
+    }//GEN-LAST:event_TFbln1KeyReleased
+
+    private void TFtgl2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TFtgl2KeyReleased
+        v.validasiJumlah(evt, TFtgl2, 2, 1);
+    }//GEN-LAST:event_TFtgl2KeyReleased
+
+    private void TFbln2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TFbln2KeyReleased
+        v.validasiJumlah(evt, TFbln2, 2, 1);
+    }//GEN-LAST:event_TFbln2KeyReleased
+
+    private void TFtglShiftKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TFtglShiftKeyReleased
+        v.validasiJumlah(evt, TFtglShift, 2, 1);
+    }//GEN-LAST:event_TFtglShiftKeyReleased
+
+    private void TFblnShiftKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TFblnShiftKeyReleased
+        v.validasiJumlah(evt, TFblnShift, 2, 1);
+    }//GEN-LAST:event_TFblnShiftKeyReleased
+
+    private void TFthn2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TFthn2KeyReleased
+        v.validasiJumlah(evt, TFthn2, 4, 1);
+    }//GEN-LAST:event_TFthn2KeyReleased
+
+    private void TFthnShiftKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TFthnShiftKeyReleased
+        v.validasiJumlah(evt, TFthnShift, 4, 1);
+    }//GEN-LAST:event_TFthnShiftKeyReleased
 
     /**
      * @param args the command line arguments
