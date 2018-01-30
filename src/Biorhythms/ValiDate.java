@@ -472,25 +472,4 @@ public class ValiDate {
                     "Warning", JOptionPane.INFORMATION_MESSAGE);
         }
     }
-     public void setNull(javax.swing.JTextField tf1,
-     javax.swing.JTextField tf2,
-     javax.swing.JTextField tf3,
-     javax.swing.JTextField tf4,
-     javax.swing.JTextField tf5,
-     javax.swing.JTextField tf6,
-     javax.swing.JTextField tf7,
-     javax.swing.JTextField tf8,
-     javax.swing.JTextField tf9,
-     javax.swing.JTextField tf10) {
-        tf1.setText("");
-        tf2.setText("");
-        tf3.setText("");
-        tf4.setText("");
-        tf5.setText("");
-        tf6.setText("");
-        tf7.setText("");
-        tf8.setText("");
-        tf9.setText("");
-        tf10.setText("");
-    }
 }
