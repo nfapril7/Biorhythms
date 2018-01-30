@@ -39,6 +39,7 @@ public class Pekerja extends Biorhythms {
     public String[] perbandingan(double BiorithmsPekerja1[], double BiorithmsPekerja2[], int jumlahshift, ValiDate v, javax.swing.JTable jTable1) {
         String pilih[] = new String[jumlahshift];
 //        jTable1 = new JTable(model); 
+        
         List<Object> list = new ArrayList<>();
         for (int i = 0; i < jumlahshift; i++) {
             if (BiorithmsPekerja1[i] > BiorithmsPekerja2[i]) {

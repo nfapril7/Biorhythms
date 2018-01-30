@@ -6,8 +6,11 @@
 package Biorhythms;
 
 import java.awt.event.KeyEvent;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JTextField;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -86,7 +89,7 @@ public class ValiDateTest {
     public void testCheck() {
         System.out.println("check");
         ValiDate instance = new ValiDate();
-        instance.check();
+//        instance.check();
         
     }
 
@@ -110,8 +113,7 @@ public class ValiDateTest {
         System.out.println("makeAppendforBirth");
         ValiDate instance = new ValiDate();
         Date result = instance.makeAppendforBirth(10, 12, 1998);
-        String dateString = d.format(result);
-        assertEquals("10/12/1998", dateString);
+        assertEquals("10/12/1998", d.format(result));
         
     }
 
@@ -121,8 +123,22 @@ public class ValiDateTest {
     @Test
     public void testCheckLebih() {
         System.out.println("checkLebih");
+        SimpleDateFormat df = new SimpleDateFormat();
         ValiDate instance = new ValiDate();
+        instance.setTgl(22);
+        instance.setBln(2);
+        instance.setThn(1995);
+        Date Tglshift = null;
+        try {
+            Tglshift = df.parse("22/12/2010");
+        } catch (ParseException ex) {
+            Logger.getLogger(ValiDateTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        instance.setTglshift(Tglshift);
         instance.checkLebih();
+        assertTrue(instance.isValidate);
+        
+        
         
     }
 
