@@ -75,9 +75,9 @@ public class ValiDateTest {
     @Test
     public void testValidate() {
         System.out.println("validate");
-        int tgl = 0;
-        int bln = 0;
-        int thn = 0;
+        int tgl = 20;
+        int bln = 12;
+        int thn = 2018;
         ValiDate instance = new ValiDate();
         instance.validate(tgl, bln, thn);
         
