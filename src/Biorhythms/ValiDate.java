@@ -329,6 +329,8 @@ public class ValiDate {
             assert (getTgl() <= jumlahHari || getTgl() > 0);
             if (getTgl() > jumlahHari || getTgl() < 0) {
                 isValidate = false;
+                JOptionPane.showMessageDialog(null, new CustomException("Input data tanggal salah"),
+                        "Warning", JOptionPane.INFORMATION_MESSAGE);
                 throw new CustomException("Input data tanggal salah");
             }
             isValidate = true;
@@ -391,6 +393,8 @@ public class ValiDate {
         try {
             if (getTgllahir().after(getTglshift()) || getTgllahir().equals(getTglshift())) {
                 isValidate = false;
+                JOptionPane.showMessageDialog(null, "Tanggal lahir tidak diperbolehkan melebihi tanggal shift",
+                        "Warning", JOptionPane.INFORMATION_MESSAGE);
                 throw new CustomException("Tanggal lahir tidak diperbolehkan melebihi tanggal shift");
             }
             isValidate = true;
