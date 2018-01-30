@@ -5,6 +5,10 @@
  */
 package Biorhythms;
 
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author april nf
@@ -54,6 +58,20 @@ public class Biorhythms {
             System.out.println(i+ "Total " + total[i]);
         }
         return total;
+    }
+    
+    public void table(Biorhythms a, Biorhythms b, javax.swing.JTable jTable1, int jumlahshift, ValiDate v){
+            List<Object> list = new ArrayList<>();
+        for (int i = 0; i < jumlahshift; i++) {
+            list.add(new Object[]{v.Shift[i], pilih[i]});
+        }
+
+        DefaultTableModel model = new DefaultTableModel();
+        model.setColumnIdentifiers(new Object[]{"Tanggal", "Nama"});
+        for (Object obj : list) {
+            model.addRow((Object[]) obj);
+        }
+        jTable1.setModel(model);
     }
 
 }
