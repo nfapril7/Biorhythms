@@ -24,22 +24,22 @@ import static org.junit.Assert.*;
  * @author userx
  */
 public class ValiDateTest {
-    
+
     public ValiDateTest() {
     }
-    
+
     @BeforeClass
     public static void setUpClass() {
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
     }
-    
+
     @Before
     public void setUp() {
     }
-    
+
     @After
     public void tearDown() {
     }
@@ -55,7 +55,7 @@ public class ValiDateTest {
         Date expResult = null;
         Date result = instance.makeAppendShift(10, 2, 1998);
         assertEquals("10/02/1998", d.format(result));
-        
+
     }
 
     /**
@@ -66,7 +66,7 @@ public class ValiDateTest {
         System.out.println("MakeShift");
         ValiDate instance = new ValiDate();
         instance.MakeShift(20, 15, 2018, 5);
-        
+
     }
 
     /**
@@ -80,7 +80,7 @@ public class ValiDateTest {
         int thn = 0;
         ValiDate instance = new ValiDate();
         instance.validate(tgl, bln, thn);
-        
+
     }
 
     /**
@@ -92,19 +92,18 @@ public class ValiDateTest {
         ValiDate instance = new ValiDate();
         //instance.check();
 //        instance.check();
-        
+
     }
 
     /**
      * Test of makeCal method, of class ValiDate.
      */
-    @Test
-    public void testMakeCal() {
-        System.out.println("makeCal");
-        ValiDate instance = new ValiDate();
-        instance.makeCal();
-        
-    }
+//    @Test
+//    public void testMakeCal() {
+//        System.out.println("makeCal");
+//        ValiDate instance = new ValiDate();
+//        instance.makeCal();//
+//    }
 
     /**
      * Test of makeAppendforBirth method, of class ValiDate.
@@ -116,32 +115,28 @@ public class ValiDateTest {
         ValiDate instance = new ValiDate();
         Date result = instance.makeAppendforBirth(10, 12, 1998);
         assertEquals("10/12/1998", d.format(result));
-        
+
     }
 
     /**
      * Test of checkLebih method, of class ValiDate.
      */
     @Test
-    public void testCheckLebih() {
+    public void testCheckLebih() throws ParseException {
         System.out.println("checkLebih");
         SimpleDateFormat df = new SimpleDateFormat();
         ValiDate instance = new ValiDate();
         instance.setTgl(22);
         instance.setBln(2);
         instance.setThn(1995);
-        Date Tglshift = null;
+        String tgl = "10/10/2018";
         try {
-            Tglshift = df.parse("22/12/2010");
+            instance.setTglshift(df.parse(tgl));
+            instance.checkLebih();
         } catch (ParseException ex) {
-            Logger.getLogger(ValiDateTest.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println(ex.getMessage());
         }
-        instance.setTglshift(Tglshift);
-        instance.checkLebih();
         assertTrue(instance.isValidate);
-        
-        
-        
     }
 
     /**
@@ -154,20 +149,21 @@ public class ValiDateTest {
         Biorhythms sym = null;
         ValiDate instance = new ValiDate();
         instance.Hitung(shift, sym);
-        
+
     }
 
     /**
      * Test of validasiKarakter method, of class ValiDate.
      */
-    @Test
-    public void testValidasiKarakter() {
-        System.out.println("validasiKarakter");
-        KeyEvent evt = null;
-        ValiDate instance = new ValiDate();
-        instance.validasiKarakter(evt);
-        
-    }
+//    @Test
+//    public void testValidasiKarakter() {
+//        System.out.println("validasiKarakter");
+//        KeyEvent evt = null;
+//        ValiDate instance = new ValiDate();
+//        instance.validasiKarakter(evt);
+//        assertFalse(instance.isValidate);
+//
+//    }
 
     /**
      * Test of validasiJumlah method, of class ValiDate.
@@ -180,7 +176,7 @@ public class ValiDateTest {
         int batas_atas = 0;
         ValiDate instance = new ValiDate();
         instance.validasiJumlah(evt, jTField, batas_atas);
-        
+
     }
-    
+
 }
