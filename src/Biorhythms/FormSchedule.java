@@ -60,6 +60,8 @@ public class FormSchedule extends javax.swing.JFrame {
         jTbDetail1 = new javax.swing.JTable();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTbDetail2 = new javax.swing.JTable();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
 
         jLabel5.setText("jLabel5");
 
@@ -170,6 +172,11 @@ public class FormSchedule extends javax.swing.JFrame {
             }
         });
 
+        TFthnShift.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TFthnShiftActionPerformed(evt);
+            }
+        });
         TFthnShift.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 TFthnShiftKeyReleased(evt);
@@ -209,9 +216,10 @@ public class FormSchedule extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 417, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -246,11 +254,9 @@ public class FormSchedule extends javax.swing.JFrame {
                                     .addComponent(jLabel6)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(122, 122, 122)
-                                .addComponent(jButton1))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(33, 33, 33)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 369, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(35, Short.MAX_VALUE))
+                                .addComponent(jButton1)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -283,8 +289,8 @@ public class FormSchedule extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jButton1)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(84, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Jadwal", jPanel1);
@@ -315,6 +321,10 @@ public class FormSchedule extends javax.swing.JFrame {
         ));
         jScrollPane3.setViewportView(jTbDetail2);
 
+        jLabel8.setText("PEKERJA 1");
+
+        jLabel9.setText("PEKERJA 2");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -322,15 +332,24 @@ public class FormSchedule extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 427, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel8)
+                            .addComponent(jLabel9))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(32, 32, 32)
+                .addGap(7, 7, 7)
+                .addComponent(jLabel8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
+                .addComponent(jLabel9)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(44, 44, 44))
         );
@@ -383,9 +402,7 @@ public class FormSchedule extends javax.swing.JFrame {
         v2.Hitung(v2.getShift(), b2);
         Pekerja p2 = new Pekerja(v2.getJmlShift());
         p2.perbandingan(b1.total, b2.total, v.getJmlShift(), v, jTable1);
-
         b2.table(b1, b2, jTbDetail1, jTbDetail2, v.getJmlShift(), v);
-
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void TFtgl1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TFtgl1KeyTyped
@@ -426,7 +443,7 @@ public class FormSchedule extends javax.swing.JFrame {
     }//GEN-LAST:event_TFthnShiftKeyTyped
 
     private void TFjmlHariKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TFjmlHariKeyTyped
-
+        v.validasiKarakter(evt);
     }//GEN-LAST:event_TFjmlHariKeyTyped
 
     private void TFjmlHariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TFjmlHariActionPerformed
@@ -435,6 +452,7 @@ public class FormSchedule extends javax.swing.JFrame {
 
     private void TFjmlHariKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TFjmlHariKeyReleased
         // TODO add your handling code here:
+        v.validasiKarakter(evt);
         int jml = Integer.parseInt(TFjmlHari.getText());
         if (jml < 5) {
             JOptionPane.showMessageDialog(null, "Kurang dari persyaratan jumlah hari", "Warning", JOptionPane.INFORMATION_MESSAGE);
@@ -490,6 +508,10 @@ public class FormSchedule extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_TFblnShiftActionPerformed
 
+    private void TFthnShiftActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TFthnShiftActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TFthnShiftActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -544,6 +566,8 @@ public class FormSchedule extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
