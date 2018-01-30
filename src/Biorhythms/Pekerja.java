@@ -54,10 +54,10 @@ public class Pekerja extends Biorhythms {
 //            System.out.println(list.get(i));
         }
         
-        System.out.println(list.size());   
+        //System.out.println(list.size());   
         for (Object obj : list) {
             model.addRow((Object[]) obj);
-            System.out.println(Arrays.toString((Object[])obj));
+            //System.out.println(Arrays.toString((Object[])obj));
             jTable1.setModel(model);
         }
         
