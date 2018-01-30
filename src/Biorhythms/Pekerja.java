@@ -49,17 +49,12 @@ public class Pekerja extends Biorhythms {
             } else {
                 pilih[i] = "Pekerja 2";
             }
-            System.out.println(v.Shift[i] + " -- " + pilih[i]);
             list.add(new Object[]{v.Shift[i], pilih[i]});
-//            System.out.println(list.get(i));
-        }
-        
-        //System.out.println(list.size());   
+        }  
         for (Object obj : list) {
-            model.addRow((Object[]) obj);
-            //System.out.println(Arrays.toString((Object[])obj));
-            jTable1.setModel(model);
+            model.addRow((Object[]) obj);            
         }
+        jTable1.setModel(model);
         
         return pilih;
     }
