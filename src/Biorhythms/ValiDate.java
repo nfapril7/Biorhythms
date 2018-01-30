@@ -162,7 +162,7 @@ public class ValiDate {
      * tanggal, bulan, tahun yang diinputkan
      */
     public void setShift(Date[] Shift) {
-        
+
         this.Shift = Shift;
     }
 
@@ -171,7 +171,7 @@ public class ValiDate {
      * @return Mengembalikan nilai variabel Shift
      */
     public Date[] getShift() {
-        
+
         return Shift;
     }
 
@@ -446,19 +446,13 @@ public class ValiDate {
         }
     }
 
-    public void validasiJumlah(java.awt.event.KeyEvent evt, javax.swing.JTextField jTField, int batas_atas, int batas_bawah) {
+    public void validasiJumlah(java.awt.event.KeyEvent evt, javax.swing.JTextField jTField, int batas_atas) {
         String c = jTField.getText();
-        try {
-            if (c.length() > batas_atas) {
-                jTField.setText("");
-            }
-            if (c.length() < batas_bawah) {
-                jTField.setText("");
-            }
-        } catch (NumberFormatException ex) {
-            JOptionPane.showMessageDialog(null, "Data tidak boleh null",
-                    "Warning", JOptionPane.INFORMATION_MESSAGE);
+
+        if (c.length() > batas_atas) {
+            evt.consume();
         }
+
     }
 
     public void validasiBatas(java.awt.event.KeyEvent evt, javax.swing.JTextField jTField, int batas_atas, int batas_bawah) {

@@ -50,10 +50,11 @@ public class ValiDateTest {
     @Test
     public void testMakeAppendShift() {
         System.out.println("makeAppendShift");
+        SimpleDateFormat d = new SimpleDateFormat("dd/mm/yyyy");
         ValiDate instance = new ValiDate();
         Date expResult = null;
         Date result = instance.makeAppendShift(10, 2, 1998);
-        assertEquals("10/2/1998", result);
+        assertEquals("10/02/1998", d.format(result));
         
     }
 
@@ -89,6 +90,7 @@ public class ValiDateTest {
     public void testCheck() {
         System.out.println("check");
         ValiDate instance = new ValiDate();
+        //instance.check();
 //        instance.check();
         
     }
@@ -174,11 +176,10 @@ public class ValiDateTest {
     public void testValidasiJumlah() {
         System.out.println("validasiJumlah");
         KeyEvent evt = null;
-        JTextField jTField = null;
+        JTextField jTField = new JTextField();
         int batas_atas = 0;
-        int batas_bawah = 0;
         ValiDate instance = new ValiDate();
-        instance.validasiJumlah(evt, jTField, batas_atas, batas_bawah);
+        instance.validasiJumlah(evt, jTField, batas_atas);
         
     }
     

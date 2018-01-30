@@ -481,43 +481,53 @@ public class FormSchedule extends javax.swing.JFrame {
 
     private void TFtgl1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TFtgl1KeyTyped
         v.validasiKarakter(evt);
+        v.validasiJumlah(evt, TFtgl1, 1);
 
     }//GEN-LAST:event_TFtgl1KeyTyped
 
     private void TFbln1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TFbln1KeyTyped
         v.validasiKarakter(evt);
+        v.validasiJumlah(evt, TFbln1, 1);
     }//GEN-LAST:event_TFbln1KeyTyped
 
     private void TFthn1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TFthn1KeyTyped
         v.validasiKarakter(evt);
+        v.validasiJumlah(evt, TFthn1, 3);
     }//GEN-LAST:event_TFthn1KeyTyped
 
     private void TFtgl2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TFtgl2KeyTyped
         v.validasiKarakter(evt);
+        v.validasiJumlah(evt, TFtgl2, 1);
     }//GEN-LAST:event_TFtgl2KeyTyped
 
     private void TFbln2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TFbln2KeyTyped
         v.validasiKarakter(evt);
+        v.validasiJumlah(evt, TFbln2, 1);
     }//GEN-LAST:event_TFbln2KeyTyped
 
     private void TFthn2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TFthn2KeyTyped
         v.validasiKarakter(evt);
+        v.validasiJumlah(evt, TFthn2, 3);
     }//GEN-LAST:event_TFthn2KeyTyped
 
     private void TFtglShiftKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TFtglShiftKeyTyped
         v.validasiKarakter(evt);
+        v.validasiJumlah(evt, TFtglShift, 1);
     }//GEN-LAST:event_TFtglShiftKeyTyped
 
     private void TFblnShiftKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TFblnShiftKeyTyped
         v.validasiKarakter(evt);
+        v.validasiJumlah(evt, TFblnShift, 1);
     }//GEN-LAST:event_TFblnShiftKeyTyped
 
     private void TFthnShiftKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TFthnShiftKeyTyped
         v.validasiKarakter(evt);
+        v.validasiJumlah(evt, TFthnShift, 3);
     }//GEN-LAST:event_TFthnShiftKeyTyped
 
     private void TFjmlHariKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TFjmlHariKeyTyped
         v.validasiKarakter(evt);
+        v.validasiJumlah(evt, TFjmlHari, 1);
     }//GEN-LAST:event_TFjmlHariKeyTyped
 
     private void TFjmlHariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TFjmlHariActionPerformed
@@ -530,7 +540,7 @@ public class FormSchedule extends javax.swing.JFrame {
     }//GEN-LAST:event_TFjmlHariKeyReleased
 
     private void TFtgl1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TFtgl1KeyReleased
-        v.validasiJumlah(evt, TFtgl1, 2, 1);
+        
         if (TFtgl1.getText().isEmpty()) {
             jButton1.disable();
         }
@@ -541,41 +551,41 @@ public class FormSchedule extends javax.swing.JFrame {
     }//GEN-LAST:event_TFbln1AncestorMoved
 
     private void TFthn1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TFthn1KeyReleased
-        v.validasiJumlah(evt, TFthn1, 4, 1);
+        
         if (TFthn1.getText().isEmpty()) {
             jButton1.disable();
         }
     }//GEN-LAST:event_TFthn1KeyReleased
 
     private void TFbln1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TFbln1KeyReleased
-        v.validasiJumlah(evt, TFbln1, 2, 1);
+        
         v.validasiBatas(evt, TFbln1, 12, 1);
     }//GEN-LAST:event_TFbln1KeyReleased
 
     private void TFtgl2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TFtgl2KeyReleased
-        v.validasiJumlah(evt, TFtgl2, 2, 1);
+        
     }//GEN-LAST:event_TFtgl2KeyReleased
 
     private void TFbln2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TFbln2KeyReleased
-        v.validasiJumlah(evt, TFbln2, 2, 1);
+        
         v.validasiBatas(evt, TFbln2, 12, 1);
     }//GEN-LAST:event_TFbln2KeyReleased
 
     private void TFtglShiftKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TFtglShiftKeyReleased
-        v.validasiJumlah(evt, TFtglShift, 2, 1);
+        
     }//GEN-LAST:event_TFtglShiftKeyReleased
 
     private void TFblnShiftKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TFblnShiftKeyReleased
-        v.validasiJumlah(evt, TFblnShift, 2, 1);
+        
         v.validasiBatas(evt, TFblnShift, 12, 1);
     }//GEN-LAST:event_TFblnShiftKeyReleased
 
     private void TFthn2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TFthn2KeyReleased
-        v.validasiJumlah(evt, TFthn2, 4, 1);
+        
     }//GEN-LAST:event_TFthn2KeyReleased
 
     private void TFthnShiftKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TFthnShiftKeyReleased
-        v.validasiJumlah(evt, TFthnShift, 4, 1);
+        
     }//GEN-LAST:event_TFthnShiftKeyReleased
 
     private void TFblnShiftActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TFblnShiftActionPerformed
