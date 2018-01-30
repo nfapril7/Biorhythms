@@ -6,6 +6,7 @@
 package Biorhythms;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import javax.swing.JTable;
@@ -40,8 +41,8 @@ public class Pekerja extends Biorhythms {
         String pilih[] = new String[jumlahshift];
         DefaultTableModel model = new DefaultTableModel();
         model.setColumnIdentifiers(new Object[]{"Tanggal", "Nama"});
-        jTable1 = new JTable(model);
-        List list = new ArrayList<>();
+//        jTable1 = new JTable(model); 
+        List<Object> list = new ArrayList<>();
         for (int i = 0; i < jumlahshift; i++) {
             if (BiorithmsPekerja1[i] > BiorithmsPekerja2[i]) {
                 pilih[i] = "Pekerja 1";
@@ -50,14 +51,16 @@ public class Pekerja extends Biorhythms {
             }
             System.out.println(v.Shift[i] + " -- " + pilih[i]);
             list.add(new Object[]{v.Shift[i], pilih[i]});
+//            System.out.println(list.get(i));
         }
-        list.add("1");
-        list.add("2");
-        System.out.println("nana");
+        
+        System.out.println(list.size());   
         for (Object obj : list) {
             model.addRow((Object[]) obj);
+            System.out.println(Arrays.toString((Object[])obj));
+            jTable1.setModel(model);
         }
-        jTable1.setModel(model);
+        
         return pilih;
     }
 
