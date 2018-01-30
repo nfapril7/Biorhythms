@@ -23,15 +23,17 @@ public class FormSchedule extends javax.swing.JFrame {
      */
     public FormSchedule() {
         initComponents();
-        
+
     }
-    public void change(){
+
+    public void change() {
         if (TFbln1.getText().equals("") || TFbln2.getText().equals("") || TFtgl1.getText().equals("") || TFtgl2.getText().equals("") || TFtglShift.getText().equals("") || TFblnShift.getText().equals("") || TFthnShift.getText().equals("") || TFthn1.getText().equals("") || TFthn2.getText().equals("") || TFjmlHari.getText().equals("")) {
             jButton1.setEnabled(false);
         } else {
             jButton1.setEnabled(true);
         }
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -441,33 +443,34 @@ public class FormSchedule extends javax.swing.JFrame {
             v.MakeShift(Integer.parseInt(TFtglShift.getText()), Integer.parseInt(TFblnShift.getText()),
                     Integer.parseInt(TFthnShift.getText()), Integer.parseInt(TFjmlHari.getText()));
             v.validate(Integer.parseInt(TFtglShift.getText()), Integer.parseInt(TFblnShift.getText()), Integer.parseInt(TFthnShift.getText()));
-            if (v.isValidate == true) {
+            if (v.isValidate) {
                 v.validate(Integer.parseInt(TFtgl1.getText()), Integer.parseInt(TFbln1.getText()), Integer.parseInt(TFthn1.getText()));
                 Biorhythms b1 = new Biorhythms(v.getJmlShift());
-                if (v.isValidate == true) {
+                if (v.isValidate) {
                     v2 = new ValiDate();
                     v2.setJmlShift(v.getJmlShift());
                     v2.setTglshift(v.getTglshift());
                     v2.validate(Integer.parseInt(TFtgl2.getText()), Integer.parseInt(TFbln2.getText()), Integer.parseInt(TFthn2.getText()));
                     Biorhythms b2 = new Biorhythms(v2.getJmlShift());
-                    if (v2.isValidate == true) {
+                    if (v2.isValidate) {
                         v.makeCal();
-                        v.Hitung(v.getShift(), b1);
-                        Pekerja p1 = new Pekerja(v.getJmlShift());
                         v2.makeCal();
-                        v2.Hitung(v2.getShift(), b2);
-                        Pekerja p2 = new Pekerja(v2.getJmlShift());
-                        p2.perbandingan(b1.total, b2.total, v.getJmlShift(), v, jTable1);
-                        b2.table(b1, b2, jTbDetail1, jTbDetail2, v.getJmlShift(), v);
-                        jTFlahir1.setText(String.valueOf(v.getTgllahir()));
-                        jTFlahir2.setText(String.valueOf(v2.getTgllahir()));
+                        if (v.isValidate && v2.isValidate) {
+                            v.Hitung(v.getShift(), b1);
+                            Pekerja p1 = new Pekerja(v.getJmlShift());
+                            v2.Hitung(v2.getShift(), b2);
+                            Pekerja p2 = new Pekerja(v2.getJmlShift());
+                            p2.perbandingan(b1.total, b2.total, v.getJmlShift(), v, jTable1);
+                            b2.table(b1, b2, jTbDetail1, jTbDetail2, v.getJmlShift(), v);
+                            jTFlahir1.setText(String.valueOf(v.getTgllahir()));
+                            jTFlahir2.setText(String.valueOf(v2.getTgllahir()));
+                        } else {
+                            setNull();
+                        }
                     } else {
-                        JOptionPane.showMessageDialog(null, new CustomException("Validasi gagal"),
-                                "Warning", JOptionPane.INFORMATION_MESSAGE);
                         setNull();
                     }
                 } else {
-                    JOptionPane.showMessageDialog(null, new CustomException("Validasi gagal"), "Warning", JOptionPane.INFORMATION_MESSAGE);
                     setNull();
                 }
             } else {
@@ -540,7 +543,7 @@ public class FormSchedule extends javax.swing.JFrame {
     }//GEN-LAST:event_TFjmlHariKeyReleased
 
     private void TFtgl1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TFtgl1KeyReleased
-        
+
         if (TFtgl1.getText().isEmpty()) {
             jButton1.disable();
         }
@@ -551,41 +554,41 @@ public class FormSchedule extends javax.swing.JFrame {
     }//GEN-LAST:event_TFbln1AncestorMoved
 
     private void TFthn1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TFthn1KeyReleased
-        
+
         if (TFthn1.getText().isEmpty()) {
             jButton1.disable();
         }
     }//GEN-LAST:event_TFthn1KeyReleased
 
     private void TFbln1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TFbln1KeyReleased
-        
+
         v.validasiBatas(evt, TFbln1, 12, 1);
     }//GEN-LAST:event_TFbln1KeyReleased
 
     private void TFtgl2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TFtgl2KeyReleased
-        
+
     }//GEN-LAST:event_TFtgl2KeyReleased
 
     private void TFbln2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TFbln2KeyReleased
-        
+
         v.validasiBatas(evt, TFbln2, 12, 1);
     }//GEN-LAST:event_TFbln2KeyReleased
 
     private void TFtglShiftKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TFtglShiftKeyReleased
-        
+
     }//GEN-LAST:event_TFtglShiftKeyReleased
 
     private void TFblnShiftKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TFblnShiftKeyReleased
-        
+
         v.validasiBatas(evt, TFblnShift, 12, 1);
     }//GEN-LAST:event_TFblnShiftKeyReleased
 
     private void TFthn2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TFthn2KeyReleased
-        
+
     }//GEN-LAST:event_TFthn2KeyReleased
 
     private void TFthnShiftKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TFthnShiftKeyReleased
-        
+
     }//GEN-LAST:event_TFthnShiftKeyReleased
 
     private void TFblnShiftActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TFblnShiftActionPerformed
@@ -608,6 +611,8 @@ public class FormSchedule extends javax.swing.JFrame {
     }//GEN-LAST:event_TFtgl2KeyPressed
 
     public void setNull() {
+        JOptionPane.showMessageDialog(null, new CustomException("Validasi gagal"),
+                "Warning", JOptionPane.INFORMATION_MESSAGE);
         TFtgl1.setText("");
         TFbln1.setText("");
         TFthn1.setText("");
