@@ -51,6 +51,8 @@ public class Pekerja extends Biorhythms {
             System.out.println(v.Shift[i] + " -- " + pilih[i]);
             list.add(new Object[]{v.Shift[i], pilih[i]});
         }
+        list.add("1");
+        list.add("2");
         System.out.println("nana");
         for (Object obj : list) {
             model.addRow((Object[]) obj);

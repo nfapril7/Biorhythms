@@ -36,6 +36,6 @@ public class MainSchedule {
         Biorhythms s2 = new Biorhythms(tanggal2.getJmlShift());
         tanggal2.Hitung(tanggal2.getShift(), s2);
         Pekerja p2 = new Pekerja(tanggal.getJmlShift());
-        p2.perbandingan(s1.total, s2.total, tanggal.getJmlShift(), tanggal);
+        p2.perbandingan(s1.total, s2.total, tanggal.getJmlShift(), tanggal, );
     }
 }
