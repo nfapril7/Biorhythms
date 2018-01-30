@@ -17,10 +17,10 @@ public class MainSchedule {
         ValiDate tanggal = new ValiDate();
 //        do {
             //misalnya
-            tanggal.MakeShift(2, 2, 2018, 3);
+            tanggal.MakeShift(29, 2, 2018, 6);
 //        } while (tanggal.isValidate == false);
         do {
-            tanggal.validate(2,2,1995);
+            tanggal.validate(28,2,1995);
         } while (tanggal.isValidate == false);
         Biorhythms s1 = new Biorhythms(tanggal.getJmlShift());
         tanggal.Hitung(tanggal.getShift(), s1);

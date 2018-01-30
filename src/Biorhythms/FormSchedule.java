@@ -59,6 +59,9 @@ public class FormSchedule extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         TFtgl1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                TFtgl1KeyReleased(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 TFtgl1KeyTyped(evt);
             }
@@ -262,7 +265,8 @@ public class FormSchedule extends javax.swing.JFrame {
         Biorhythms s2 = new Biorhythms(v2.getJmlShift());
         v2.Hitung(v2.getShift(), s2);
         Pekerja p2 = new Pekerja(v2.getJmlShift());
-        p2.perbandingan(s1.total, s2.total, v.getJmlShift(), v);
+        p2.perbandingan(s1.total, s2.total, v.getJmlShift(), v, jTable1);
+//        p2.table(v.getJmlShift(), jTable1, v);
 
 
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -324,6 +328,15 @@ public class FormSchedule extends javax.swing.JFrame {
             TFjmlHari.setText("");
         }
     }//GEN-LAST:event_TFjmlHariKeyReleased
+
+    private void TFtgl1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TFtgl1KeyReleased
+        // TODO add your handling code here:
+        String c = TFtgl1.getText();
+        if (c.length()>2) {
+            JOptionPane.showMessageDialog(null, "Kurang dari persyaratan jumlah hari", "Warning", JOptionPane.INFORMATION_MESSAGE);
+            TFtgl1.setText("");
+        }
+    }//GEN-LAST:event_TFtgl1KeyReleased
 
     /**
      * @param args the command line arguments
