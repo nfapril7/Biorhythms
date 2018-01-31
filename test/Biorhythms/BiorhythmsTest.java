@@ -15,7 +15,7 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author userx
+ * @author april nf, ryanpradnya
  */
 public class BiorhythmsTest {
 
