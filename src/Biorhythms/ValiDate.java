@@ -18,7 +18,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author april nf, ryan Kelas Validate untuk memvalidasi inputan tanggal
+ * @author april nf, ryanpradnya
  */
 public class ValiDate {
 
