@@ -14,7 +14,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author april nf
+ * @author april nf, ryanpradnya
  *
  * Kelas Pekerja merupakan turunan dari kelas Biorythms Setiap pekerja mempunyai
  * nilai Bioryhtms yang berbeda-beda
@@ -38,8 +38,7 @@ public class Pekerja extends Biorhythms {
      */
     public String[] perbandingan(double BiorithmsPekerja1[], double BiorithmsPekerja2[], int jumlahshift, ValiDate v, javax.swing.JTable jTable1) {
         String pilih[] = new String[jumlahshift];
-//        jTable1 = new JTable(model); 
-        
+//        jTable1 = new JTable(model);         
         List<Object> list = new ArrayList<>();
         for (int i = 0; i < jumlahshift; i++) {
             System.out.println(BiorithmsPekerja1[i]+" - "+BiorithmsPekerja2[i]);
@@ -57,8 +56,7 @@ public class Pekerja extends Biorhythms {
             model.addRow((Object[]) obj);
         }
         jTable1.setModel(model);
-
-        return pilih;
+        return pilih;       
     }
 
 }

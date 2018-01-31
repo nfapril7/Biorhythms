@@ -11,7 +11,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author april nf
+ * @author april nf, ryanpradnya
  */
 public class Biorhythms {
 

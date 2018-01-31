@@ -7,7 +7,7 @@ package Biorhythms;
 
 /**
  *
- * @author april nf
+ * @author april nf, ryanpradnya
  */
 public class MainSchedule {
 
