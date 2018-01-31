@@ -22,8 +22,16 @@ import javax.swing.JOptionPane;
  */
 public class ValiDate {
 
-    private int jmlShift, tgl, bln, thn, jumlahHari, tglAwal, blnAwal, thnAwal;
-    private Date Tgllahir, Tglshift;
+    private int jmlShift; 
+    private int tgl; 
+    private int bln; 
+    private int thn; 
+    private int jumlahHari; 
+    private int tglAwal; 
+    private int blnAwal; 
+    private int thnAwal;
+    private Date Tgllahir; 
+    private Date Tglshift;
     boolean isValidate = true;
     protected Date Shift[];
     Scanner in;

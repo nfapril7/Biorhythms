@@ -15,7 +15,10 @@ import javax.swing.table.DefaultTableModel;
  */
 public class Biorhythms {
 
-    protected double fisik[], emosional[], intelektual[], total[];
+    protected double fisik[]; 
+    protected double emosional[]; 
+    protected double intelektual[]; 
+    protected double total[];
 
     /**
      * @param args Konstruktor untuk membuat objek array variabel fisik,
