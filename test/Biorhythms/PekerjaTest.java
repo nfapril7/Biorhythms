@@ -53,12 +53,12 @@ public class PekerjaTest {
         //validate2.MakeShift(29, 10, 2020, 5);
         validate2.setJmlShift(validate1.getJmlShift());
         validate2.setTglshift(validate1.getTglshift());
-        Biorhythms b1 = new Biorhythms(validate1.getJmlShift());
+        Biorhythms b1 = new Pekerja(validate1.getJmlShift());
         validate1.makeCal();
         validate2.makeCal();
         validate1.Hitung(validate1.getShift(), b1);
         Pekerja p1 = new Pekerja(validate1.getJmlShift());
-        Biorhythms b2 = new Biorhythms(validate2.getJmlShift());
+        Biorhythms b2 = new Pekerja(validate2.getJmlShift());
         validate2.Hitung(validate2.getShift(), b2);
         Pekerja p2 = new Pekerja(validate2.getJmlShift());
         JTable jTable1 = new JTable();
@@ -83,19 +83,18 @@ public class PekerjaTest {
         //validate2.MakeShift(29, 10, 2020, 5);
         validate2.setJmlShift(validate1.getJmlShift());
         validate2.setTglshift(validate1.getTglshift());
-        Biorhythms b1 = new Biorhythms(validate1.getJmlShift());
+        Biorhythms b1 = new Pekerja(validate1.getJmlShift());
         validate1.makeCal();
         validate2.makeCal();
         validate1.Hitung(validate1.getShift(), b1);
         Pekerja p1 = new Pekerja(validate1.getJmlShift());
-        Biorhythms b2 = new Biorhythms(validate2.getJmlShift());
+        Biorhythms b2 = new Pekerja(validate2.getJmlShift());
         validate2.Hitung(validate2.getShift(), b2);
         Pekerja p2 = new Pekerja(validate2.getJmlShift());
         JTable jTable1 = new JTable();
         String[] expResult = {"Pekerja 2", "Pekerja 2", "Pekerja 2", "Pekerja 2", "Pekerja 2"};
         String[] result = p2.perbandingan(b1.total, b2.total, validate1.getJmlShift(), validate1, jTable1);
         assertNotEquals(expResult, result);
-
     }
 
 }

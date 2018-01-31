@@ -46,7 +46,7 @@ public class BiorhythmsTest {
     public void testGetEmosional() {
         System.out.println("getEmosional");
         int[] hari = {20};
-        Biorhythms instance = new Biorhythms(1);
+        Biorhythms instance = new Pekerja(1);
         double[] expResult = {-0.9749279121818236};
         double[] result = instance.getEmosional(hari);
         assertArrayEquals(expResult, result, 0.0);
@@ -61,7 +61,7 @@ public class BiorhythmsTest {
     public void testGetEmosionalFalse() {
         System.out.println("getEmosional false");
         int[] hari = {20};
-        Biorhythms instance = new Biorhythms(1);
+        Biorhythms instance = new Pekerja(1);
         double[] expResult = {-0.730835964278124};
         double[] result = instance.getEmosional(hari);
         assertNotEquals(expResult, result);
@@ -76,7 +76,7 @@ public class BiorhythmsTest {
     public void testGetFisik() {
         System.out.println("getFisik");
         int[] hari = {20};
-        Biorhythms instance = new Biorhythms(1);
+        Biorhythms instance = new Pekerja(1);
         double[] expResult = {-0.730835964278124};
         double[] result = instance.getFisik(hari);
         assertArrayEquals(expResult, result, 0.0);
@@ -91,7 +91,7 @@ public class BiorhythmsTest {
     public void testGetFisikFalse() {
         System.out.println("getFisik false");
         int[] hari = {20};
-        Biorhythms instance = new Biorhythms(1);
+        Biorhythms instance = new Pekerja(1);
         double[] expResult = {-0.730835964278124};
         double[] result = instance.getFisik(hari);
         assertNotEquals(expResult, result);
@@ -106,7 +106,7 @@ public class BiorhythmsTest {
     public void testGetIntelektual() {
         System.out.println("getIntelektual");
         int[] hari = {20};
-        Biorhythms instance = new Biorhythms(1);
+        Biorhythms instance = new Pekerja(1);
         double[] expResult = {-0.6181589862206053};
         double[] result = instance.getIntelektual(hari);
         assertArrayEquals(expResult, result, 0.0);
@@ -121,7 +121,7 @@ public class BiorhythmsTest {
     public void testGetIntelektualFalse() {
         System.out.println("getIntelektual false");
         int[] hari = {20};
-        Biorhythms instance = new Biorhythms(1);
+        Biorhythms instance = new Pekerja(1);
         double[] expResult = {-0.9749279121818236};
         double[] result = instance.getIntelektual(hari);
         assertNotEquals(expResult, result);
@@ -135,7 +135,7 @@ public class BiorhythmsTest {
     @Test
     public void testGetTotal() {
         System.out.println("getTotal");
-        Biorhythms instance = new Biorhythms(1);
+        Biorhythms instance = new Pekerja(1);
         double[] expResult = {-2.436599840738072};
         instance.fisik[0] = -0.730835964278124;
         instance.emosional[0] = -0.9749279121818236;
@@ -152,7 +152,7 @@ public class BiorhythmsTest {
     @Test
     public void testGetTotalFalse() {
         System.out.println("getTotal false");
-        Biorhythms instance = new Biorhythms(1);
+        Biorhythms instance = new Pekerja(1);
         double[] expResult = {0.436599840738072};
         instance.fisik[0] = -0.730835964278124;
         instance.emosional[0] = -0.9749279121818236;

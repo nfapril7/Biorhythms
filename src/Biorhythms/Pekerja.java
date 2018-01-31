@@ -25,6 +25,27 @@ public class Pekerja extends Biorhythms {
         super(jmlhari);
     }
 
+    @Override
+    public double[] getEmosional(int[] hari) {
+        return super.getEmosional(hari); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public double[] getFisik(int[] hari) {
+        return super.getFisik(hari); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public double[] getIntelektual(int[] hari) {
+        return super.getIntelektual(hari); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public double[] getTotal() {
+        return super.getTotal(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+
     /**
      *
      * @param BiorithmsPekerja1 : Total nilai Biorythms dari pekerja 1
@@ -57,6 +78,42 @@ public class Pekerja extends Biorhythms {
         }
         jTable1.setModel(model);
         return pilih;       
+    }
+    
+        /**
+     * Membuat table untuk menampilkan nilai Biothythms
+     * @param b1 memerlukan inputan objek b1 dari class Biorhythms untuk pekerja
+     * 1
+     * @param b2 memerlukan inputan objek b2 dari class Biorhythms untuk pekerja
+     * 2
+     * @param jTable1 memerlukan inputan parameter berupa objek dari Jtable
+     * untuk menampilkan nilai Biorhythms pekerja 1
+     * @param jTable2 memerlukan inputan parameter berupa objek dari Jtable
+     * untuk menampilkan nilai Biorhythms pekerja 2
+     * @param jumlahshift memerlukan inputan parameter jumlah hari shift
+     * @param v memerlukan inputan parameter berupa objek dari class ValiDate
+     * untuk memanggil nilai variabel shift[]
+     */
+    public void table(Biorhythms p1, Biorhythms p2, javax.swing.JTable jTable1, javax.swing.JTable jTable2, int jumlahshift, ValiDate v) {
+        List<Object> list = new ArrayList<>();
+        List<Object> list2 = new ArrayList<>();
+        for (int i = 0; i < jumlahshift; i++) {
+            list.add(new Object[]{v.Shift[i], p1.fisik[i], p1.emosional[i], p1.intelektual[i], p1.total[i]});
+            list2.add(new Object[]{v.Shift[i], p2.fisik[i], p2.emosional[i], p2.intelektual[i], p2.total[i]});
+        }
+        DefaultTableModel model = new DefaultTableModel();
+        DefaultTableModel model2 = new DefaultTableModel();
+        model.setColumnIdentifiers(new Object[]{"Tanggal", "Fisik", "Emosional", "Intelektual", "Total"});
+        model2.setColumnIdentifiers(new Object[]{"Tanggal", "Fisik", "Emosional", "Intelektual", "Total"});
+        for (Object obj : list) {
+            model.addRow((Object[]) obj);
+        }
+        jTable1.setModel(model);
+
+        for (Object obj : list2) {
+            model2.addRow((Object[]) obj);
+        }
+        jTable2.setModel(model2);
     }
 
 }
