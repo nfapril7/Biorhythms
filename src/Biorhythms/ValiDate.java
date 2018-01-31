@@ -264,7 +264,7 @@ public class ValiDate {
      * @param blnAwal : membutuhkan inputan parameter bulan shift
      * @param thnAwal : membutuhkan inputan parameter tahun shift
      */
-    void MakeShift(int tglAwal, int blnAwal, int thnAwal, int jmlShift) {
+    boolean MakeShift(int tglAwal, int blnAwal, int thnAwal, int jmlShift) {
         try {
             if (jmlShift < 5 || jmlShift > 10) {
                 isValidate = false;
@@ -283,6 +283,7 @@ public class ValiDate {
         } catch (CustomException ex) {
             System.out.println(ex.getMessage());
         }
+        return isValidate;
     }
 
     /**
@@ -292,7 +293,7 @@ public class ValiDate {
     /**
      * Method validate untuk memvalidasi inputan tgl, bln, tahun
      */
-    public void validate(int tgl, int bln, int thn) {
+    public boolean validate(int tgl, int bln, int thn) {
         switch (bln) {
             case 1:
             case 3:
@@ -320,13 +321,14 @@ public class ValiDate {
                 System.out.println("Data tanggal yang Anda masukan salah" + getTgl() + " - " + getBln() + " - " + getThn());
                 isValidate = false;
         }
+        return isValidate;
     }
 
     /**
      * Method check untuk menghandling jika inputan tgl dalam bulan
      * melebihi/kurang dari jumlah hari dalam suatu bulan
      */
-    void check(int tgl, int bln, int thn) {
+    boolean check(int tgl, int bln, int thn) {
         try {
             assert (tgl <= getJumlahHari() || tgl > 0);
             if (tgl > getJumlahHari() || tgl < 0) {
@@ -339,10 +341,10 @@ public class ValiDate {
             setTgl(tgl);
             setBln(bln);
             setThn(thn);
-//            makeCal();
         } catch (CustomException ex) {
             System.out.println(ex.getMessage());
         }
+        return isValidate;
     }
 
     /**
@@ -392,7 +394,7 @@ public class ValiDate {
      * misalnya, tgl shift : 1-1-2018, tgl lahir : 1-2-2018 maka jika inputan
      * seperti tersebut, akan memanggil class CustomException
      */
-    void checkLebih() {
+    boolean checkLebih() {
         makeAppendforBirth(getTgl(), getBln(), getThn());
         try {
             if (getTgllahir().after(getTglshift()) || getTgllahir().equals(getTglshift())) {
@@ -406,6 +408,7 @@ public class ValiDate {
         } catch (CustomException ex) {
             System.out.println(ex.getMessage());
         }
+        return isValidate;
     }
 
     /**
@@ -419,6 +422,7 @@ public class ValiDate {
     public void Hitung(Date shift[], Biorhythms sym) {
         if (isValidate == true) {
             int hari[] = new int[getJmlShift()];
+            
             for (int i = 0; i < hari.length; i++) {
                 hari[i] = (int) TimeUnit.MILLISECONDS.toDays((shift[i].getTime() - getTgllahir().getTime()));
                 sym.getFisik(hari);
