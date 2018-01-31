@@ -45,7 +45,8 @@ public class ValiDateTest {
     }
 
     /**
-     * Test of makeAppendShift method, of class ValiDate.
+     * Test untuk method makeAppendShift ketika kondisi atau inputan benar dari
+     * class ValiDate.
      */
     @Test
     public void testMakeAppendShift() {
@@ -57,9 +58,10 @@ public class ValiDateTest {
         assertEquals("10/02/1998", d.format(result));
 
     }
-    
+
     /**
-     * Test of makeAppendShift method false, of class ValiDate.
+     * Test untuk method makeAppendShift ketika kondisi atau inputan salah dari
+     * class ValiDate.
      */
     @Test
     public void testMakeAppendShiftFalse() {
@@ -72,9 +74,9 @@ public class ValiDateTest {
 
     }
 
-
     /**
-     * Test of validate method, of class ValiDate.
+     * Test untuk method validate ketika kondisi atau inputan benar dari class
+     * ValiDate.
      */
     @Test
     public void testValidate() {
@@ -86,9 +88,10 @@ public class ValiDateTest {
         assertTrue(instance.validate(tgl, bln, thn));
 
     }
-    
+
     /**
-     * Test of validate method false, of class ValiDate.
+     * Test untuk method validate ketika kondisi atau inputan salah dari class
+     * ValiDate.
      */
     @Test
     public void testValidateFalse() {
@@ -101,9 +104,9 @@ public class ValiDateTest {
 
     }
 
-
     /**
-     * Test of makeAppendforBirth method, of class ValiDate.
+     * Test untuk method makeAppendforBirth ketika kondisi atau inputan benar
+     * dari class ValiDate.
      */
     @Test
     public void testMakeAppendforBirth() {
@@ -114,9 +117,10 @@ public class ValiDateTest {
         assertEquals("10/12/1998", d.format(result));
 
     }
-    
+
     /**
-     * Test of makeAppendforBirth method, of class ValiDate.
+     * Test untuk method makeAppendforBirth ketika kondisi atau inputan salah
+     * dari class ValiDate.
      */
     @Test
     public void testMakeAppendforBirthFalse() {
@@ -129,7 +133,8 @@ public class ValiDateTest {
     }
 
     /**
-     * Test of checkLebih method, of class ValiDate.
+     * Test untuk method checkLebih ketika kondisi atau inputan benar dari class
+     * ValiDate.
      */
     @Test
     public void testCheckLebih() throws ParseException {
@@ -146,11 +151,12 @@ public class ValiDateTest {
         } catch (ParseException ex) {
             System.out.println(ex.getMessage());
         }
-        
+
     }
-    
+
     /**
-     * Test of checkLebih method false, of class ValiDate.
+     * Test untuk method checkLebih ketika kondisi atau inputan salah dari class
+     * ValiDate.
      */
     @Test
     public void testCheckLebihFalse() throws ParseException {
@@ -167,12 +173,12 @@ public class ValiDateTest {
         } catch (ParseException ex) {
             System.out.println(ex.getMessage());
         }
-        
+
     }
 
-    
     /**
-     * Test of MakeShift method, of class ValiDate.
+     * Test untuk method MakeShift ketika kondisi atau inputan benar dari class
+     * ValiDate.
      */
     @Test
     public void testMakeShift() {
@@ -186,9 +192,10 @@ public class ValiDateTest {
         boolean result = instance.MakeShift(tglAwal, blnAwal, thnAwal, jmlShift);
         assertEquals(expResult, result);
     }
-    
+
     /**
-     * Test of MakeShift method false, of class ValiDate.
+     * Test untuk method MakeShift ketika kondisi atau inputan salah dari class
+     * ValiDate.
      */
     @Test
     public void testMakeShiftFalse() {
@@ -204,7 +211,8 @@ public class ValiDateTest {
     }
 
     /**
-     * Test of check method, of class ValiDate.
+     * Test untuk method check ketika kondisi atau inputan benar dari class
+     * ValiDate.
      */
     @Test
     public void testCheck() {
@@ -217,11 +225,12 @@ public class ValiDateTest {
         boolean expResult = true;
         boolean result = instance.check(tgl, bln, thn);
         assertEquals(expResult, result);
-    
+
     }
 
     /**
-     * Test of check method false, of class ValiDate.
+     * Test untuk method check ketika kondisi atau inputan salah dari class
+     * ValiDate.
      */
     @Test
     public void testCheckFalse() {
@@ -234,7 +243,7 @@ public class ValiDateTest {
         boolean expResult = false;
         boolean result = instance.check(tgl, bln, thn);
         assertEquals(expResult, result);
-    
+
     }
-    
+
 }

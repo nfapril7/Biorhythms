@@ -18,58 +18,59 @@ import static org.junit.Assert.*;
  * @author userx
  */
 public class BiorhythmsTest {
-    
+
     public BiorhythmsTest() {
     }
-    
+
     @BeforeClass
     public static void setUpClass() {
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
     }
-    
+
     @Before
     public void setUp() {
     }
-    
+
     @After
     public void tearDown() {
     }
 
     /**
-     * Test of getEmosional method, of class Biorhythms.
+     * Test untuk method getEmosional ketika kondisi atau inputan benar dari
+     * Biorhythms.
      */
     @Test
     public void testGetEmosional() {
         System.out.println("getEmosional");
-        int [] hari={20};
+        int[] hari = {20};
         Biorhythms instance = new Biorhythms(1);
-        double []expResult = {-0.9749279121818236};
-        double []result = instance.getEmosional(hari);
-        assertArrayEquals(expResult, result,0.0);
-        
+        double[] expResult = {-0.9749279121818236};
+        double[] result = instance.getEmosional(hari);
+        assertArrayEquals(expResult, result, 0.0);
+
     }
-    
+
     /**
-     * Test of getEmosional method false, of class Biorhythms.
+     * Test untuk method getEmosional ketika kondisi atau inputan salah dari
+     * Biorhythms.
      */
     @Test
     public void testGetEmosionalFalse() {
         System.out.println("getEmosional false");
-        int [] hari={20};
+        int[] hari = {20};
         Biorhythms instance = new Biorhythms(1);
-        double []expResult = {-0.730835964278124};
-        double []result = instance.getEmosional(hari);
+        double[] expResult = {-0.730835964278124};
+        double[] result = instance.getEmosional(hari);
         assertNotEquals(expResult, result);
-        
+
     }
-    
-    
 
     /**
-     * Test of getFisik method, of class Biorhythms.
+     * Test untuk method getFisik ketika kondisi atau inputan benar dari
+     * Biorhythms.
      */
     @Test
     public void testGetFisik() {
@@ -79,11 +80,12 @@ public class BiorhythmsTest {
         double[] expResult = {-0.730835964278124};
         double[] result = instance.getFisik(hari);
         assertArrayEquals(expResult, result, 0.0);
-        
+
     }
-    
+
     /**
-     * Test of getFisik method false, of class Biorhythms.
+     * Test untuk method getFisik ketika kondisi atau inputan salah dari
+     * Biorhythms.
      */
     @Test
     public void testGetFisikFalse() {
@@ -93,11 +95,12 @@ public class BiorhythmsTest {
         double[] expResult = {-0.730835964278124};
         double[] result = instance.getFisik(hari);
         assertNotEquals(expResult, result);
-        
+
     }
 
     /**
-     * Test of getIntelektual method, of class Biorhythms.
+     * Test untuk method getIntelektual ketika kondisi atau inputan benar dari
+     * Biorhythms.
      */
     @Test
     public void testGetIntelektual() {
@@ -107,11 +110,12 @@ public class BiorhythmsTest {
         double[] expResult = {-0.730835964278124};
         double[] result = instance.getIntelektual(hari);
         assertArrayEquals(expResult, result, 0.0);
-        
+
     }
-    
+
     /**
-     * Test of getIntelektual method false, of class Biorhythms.
+     * Test untuk method getIntelektual ketika kondisi atau inputan salah dari
+     * Biorhythms.
      */
     @Test
     public void testGetIntelektualFalse() {
@@ -121,11 +125,12 @@ public class BiorhythmsTest {
         double[] expResult = {-0.9749279121818236};
         double[] result = instance.getIntelektual(hari);
         assertNotEquals(expResult, result);
-        
+
     }
 
     /**
-     * Test of getTotal method, of class Biorhythms.
+     * Test untuk method getTotal ketika kondisi atau inputan benar dari
+     * Biorhythms.
      */
     @Test
     public void testGetTotal() {
@@ -137,11 +142,12 @@ public class BiorhythmsTest {
         instance.intelektual[0] = -0.730835964278124;
         double[] result = instance.getTotal();
         assertArrayEquals(expResult, result, 0.0);
-        
+
     }
 
     /**
-     * Test of getTotal method false, of class Biorhythms.
+     * Test untuk method getTotal ketika kondisi atau inputan salah dari
+     * Biorhythms.
      */
     @Test
     public void testGetTotalFalse() {
@@ -153,7 +159,7 @@ public class BiorhythmsTest {
         instance.intelektual[0] = -0.730835964278124;
         double[] result = instance.getTotal();
         assertNotEquals(expResult, result);
-        
+
     }
-    
+
 }

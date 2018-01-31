@@ -18,28 +18,29 @@ import static org.junit.Assert.*;
  * @author userx
  */
 public class PekerjaTest {
-    
+
     public PekerjaTest() {
     }
-    
+
     @BeforeClass
     public static void setUpClass() {
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
     }
-    
+
     @Before
     public void setUp() {
     }
-    
+
     @After
     public void tearDown() {
     }
 
     /**
-     * Test of perbandingan method, of class Pekerja.
+     * Test untuk method Perbandingan ketika kondisi atau inputan benar dari
+     * class Pekerja.
      */
     @Test
     public void testPerbandingan() {
@@ -61,13 +62,16 @@ public class PekerjaTest {
         validate2.Hitung(validate2.getShift(), b2);
         Pekerja p2 = new Pekerja(validate2.getJmlShift());
         JTable jTable1 = new JTable();
-        String[] expResult = {"Pekerja 1", "Pekerja 1","Pekerja 1","Pekerja 1","Pekerja 1"};
+        String[] expResult = {"Pekerja 1", "Pekerja 1", "Pekerja 1", "Pekerja 1", "Pekerja 1"};
         String[] result = p2.perbandingan(b1.total, b2.total, validate1.getJmlShift(), validate1, jTable1);
         assertArrayEquals(expResult, result);
-        
-        
+
     }
-    
+
+    /**
+     * Test untuk method Perbandingan ketika kondisi atau inputan salah dari
+     * class Pekerja.
+     */
     @Test
     public void testPerbandinganFalse() {
         System.out.println("perbandingan false");
@@ -88,12 +92,10 @@ public class PekerjaTest {
         validate2.Hitung(validate2.getShift(), b2);
         Pekerja p2 = new Pekerja(validate2.getJmlShift());
         JTable jTable1 = new JTable();
-        String[] expResult = {"Pekerja 2", "Pekerja 2","Pekerja 2","Pekerja 2","Pekerja 2"};
+        String[] expResult = {"Pekerja 2", "Pekerja 2", "Pekerja 2", "Pekerja 2", "Pekerja 2"};
         String[] result = p2.perbandingan(b1.total, b2.total, validate1.getJmlShift(), validate1, jTable1);
         assertNotEquals(expResult, result);
-        
-        
-        
+
     }
-    
+
 }
