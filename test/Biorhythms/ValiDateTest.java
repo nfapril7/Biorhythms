@@ -57,17 +57,21 @@ public class ValiDateTest {
         assertEquals("10/02/1998", d.format(result));
 
     }
-
+    
     /**
-     * Test of MakeShift method, of class ValiDate.
+     * Test of makeAppendShift method false, of class ValiDate.
      */
     @Test
-    public void testMakeShift() {
-        System.out.println("MakeShift");
+    public void testMakeAppendShiftFalse() {
+        System.out.println("makeAppendShift false");
+        SimpleDateFormat d = new SimpleDateFormat("dd/mm/yyyy");
         ValiDate instance = new ValiDate();
-        instance.MakeShift(20, 15, 2018, 5);
+        Date expResult = null;
+        Date result = instance.makeAppendShift(10, 88, 1998);
+        assertNotEquals("10/02/1998", d.format(result));
 
     }
+
 
     /**
      * Test of validate method, of class ValiDate.
@@ -79,31 +83,24 @@ public class ValiDateTest {
         int bln = 12;
         int thn = 2018;
         ValiDate instance = new ValiDate();
-        instance.validate(tgl, bln, thn);
+        assertTrue(instance.validate(tgl, bln, thn));
 
     }
-
+    
     /**
-     * Test of check method, of class ValiDate.
+     * Test of validate method false, of class ValiDate.
      */
     @Test
-    public void testCheck() {
-        System.out.println("check");
+    public void testValidateFalse() {
+        System.out.println("validate false");
+        int tgl = 40;
+        int bln = 12;
+        int thn = 2018;
         ValiDate instance = new ValiDate();
-        //instance.check();
-//        instance.check();
+        assertFalse(instance.validate(tgl, bln, thn));
 
     }
 
-    /**
-     * Test of makeCal method, of class ValiDate.
-     */
-//    @Test
-//    public void testMakeCal() {
-//        System.out.println("makeCal");
-//        ValiDate instance = new ValiDate();
-//        instance.makeCal();//
-//    }
 
     /**
      * Test of makeAppendforBirth method, of class ValiDate.
@@ -115,6 +112,19 @@ public class ValiDateTest {
         ValiDate instance = new ValiDate();
         Date result = instance.makeAppendforBirth(10, 12, 1998);
         assertEquals("10/12/1998", d.format(result));
+
+    }
+    
+    /**
+     * Test of makeAppendforBirth method, of class ValiDate.
+     */
+    @Test
+    public void testMakeAppendforBirthFalse() {
+        SimpleDateFormat d = new SimpleDateFormat("dd/mm/yyyy");
+        System.out.println("makeAppendforBirth false");
+        ValiDate instance = new ValiDate();
+        Date result = instance.makeAppendforBirth(51, 89, 1998);
+        assertNotEquals("10/12/1998", d.format(result));
 
     }
 
@@ -132,51 +142,99 @@ public class ValiDateTest {
         String tgl = "10/10/2018";
         try {
             instance.setTglshift(df.parse(tgl));
-            instance.checkLebih();
+            assertTrue(instance.checkLebih());
         } catch (ParseException ex) {
             System.out.println(ex.getMessage());
         }
-        assertTrue(instance.isValidate);
+        
     }
-
+    
     /**
-     * Test of Hitung method, of class ValiDate.
+     * Test of checkLebih method false, of class ValiDate.
      */
     @Test
-    public void testHitung() {
-        System.out.println("Hitung");
-        Date[] shift = null;
-        Biorhythms sym = null;
+    public void testCheckLebihFalse() throws ParseException {
+        System.out.println("checkLebih");
+        SimpleDateFormat df = new SimpleDateFormat();
         ValiDate instance = new ValiDate();
-        instance.Hitung(shift, sym);
-
+        instance.setTgl(22);
+        instance.setBln(12);
+        instance.setThn(2018);
+        String tgl = "10/10/2018";
+        try {
+            instance.setTglshift(df.parse(tgl));
+            assertFalse(instance.checkLebih());
+        } catch (ParseException ex) {
+            System.out.println(ex.getMessage());
+        }
+        
     }
 
+    
     /**
-     * Test of validasiKarakter method, of class ValiDate.
-     */
-//    @Test
-//    public void testValidasiKarakter() {
-//        System.out.println("validasiKarakter");
-//        KeyEvent evt = null;
-//        ValiDate instance = new ValiDate();
-//        instance.validasiKarakter(evt);
-//        assertFalse(instance.isValidate);
-//
-//    }
-
-    /**
-     * Test of validasiJumlah method, of class ValiDate.
+     * Test of MakeShift method, of class ValiDate.
      */
     @Test
-    public void testValidasiJumlah() {
-        System.out.println("validasiJumlah");
-        KeyEvent evt = null;
-        JTextField jTField = new JTextField();
-        int batas_atas = 0;
+    public void testMakeShift() {
+        System.out.println("MakeShift");
+        int tglAwal = 20;
+        int blnAwal = 12;
+        int thnAwal = 2018;
+        int jmlShift = 5;
         ValiDate instance = new ValiDate();
-        instance.validasiJumlah(evt, jTField, batas_atas);
-
+        boolean expResult = true;
+        boolean result = instance.MakeShift(tglAwal, blnAwal, thnAwal, jmlShift);
+        assertEquals(expResult, result);
+    }
+    
+    /**
+     * Test of MakeShift method false, of class ValiDate.
+     */
+    @Test
+    public void testMakeShiftFalse() {
+        System.out.println("MakeShift false");
+        int tglAwal = 20;
+        int blnAwal = 12;
+        int thnAwal = 2018;
+        int jmlShift = 1;
+        ValiDate instance = new ValiDate();
+        boolean expResult = false;
+        boolean result = instance.MakeShift(tglAwal, blnAwal, thnAwal, jmlShift);
+        assertEquals(expResult, result);
     }
 
+    /**
+     * Test of check method, of class ValiDate.
+     */
+    @Test
+    public void testCheck() {
+        System.out.println("check");
+        int tgl = 19;
+        int bln = 3;
+        int thn = 1996;
+        ValiDate instance = new ValiDate();
+        instance.setJumlahHari(31);
+        boolean expResult = true;
+        boolean result = instance.check(tgl, bln, thn);
+        assertEquals(expResult, result);
+    
+    }
+
+    /**
+     * Test of check method false, of class ValiDate.
+     */
+    @Test
+    public void testCheckFalse() {
+        System.out.println("check false");
+        int tgl = 99;
+        int bln = 3;
+        int thn = 1996;
+        ValiDate instance = new ValiDate();
+        instance.setJumlahHari(31);
+        boolean expResult = false;
+        boolean result = instance.check(tgl, bln, thn);
+        assertEquals(expResult, result);
+    
+    }
+    
 }
