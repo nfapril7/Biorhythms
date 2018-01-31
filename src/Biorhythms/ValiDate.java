@@ -22,9 +22,6 @@ import javax.swing.JOptionPane;
  */
 public class ValiDate {
 
-    /**
-     * Deklarasi variabel
-     */
     private int jmlShift, tgl, bln, thn, jumlahHari, tglAwal, blnAwal, thnAwal;
     private Date Tgllahir, Tglshift;
     boolean isValidate = true;
@@ -33,7 +30,7 @@ public class ValiDate {
     SimpleDateFormat df;
 
     /**
-     * Konstruktor
+     * Konstruktor class ValiDate
      */
     public ValiDate() {
         in = new Scanner(System.in);
@@ -152,6 +149,10 @@ public class ValiDate {
         this.jumlahHari = jumlahHari;
     }
 
+    /**
+     *
+     * @return Mnegembalikan nilai jumlah hari shift
+     */
     public int getJumlahHari() {
         return jumlahHari;
     }
@@ -404,7 +405,7 @@ public class ValiDate {
                 throw new CustomException("Tanggal lahir tidak diperbolehkan melebihi tanggal shift");
             }
             isValidate = true;
-            
+
         } catch (CustomException ex) {
             System.out.println(ex.getMessage());
         }
@@ -422,7 +423,7 @@ public class ValiDate {
     public void Hitung(Date shift[], Biorhythms sym) {
         if (isValidate == true) {
             int hari[] = new int[getJmlShift()];
-            
+
             for (int i = 0; i < hari.length; i++) {
                 hari[i] = (int) TimeUnit.MILLISECONDS.toDays((shift[i].getTime() - getTgllahir().getTime()));
                 sym.getFisik(hari);
@@ -434,7 +435,7 @@ public class ValiDate {
     }
 
     /**
-     *
+     * Menghandle jika inputan user selain integer
      * @param evt variabel untuk menset objek dari keyevent method
      * validasiKarakter digunakan untuk validasi agar tidak bisa menginputkan
      * selain integer
@@ -451,15 +452,28 @@ public class ValiDate {
         }
     }
 
+    /**
+     * Menghandle jika inputan jumlah diigt melebihi batas maksimal yang diperbolehkan
+     * @param evt memerlukan aksi evt
+     * @param jTField memerlukan inputan parameter objek jtextfield
+     * @param batas_atas memerlukan inputan nilai batas digit maksimal dari suatu variabel
+     * bulan
+     */
     public void validasiJumlah(java.awt.event.KeyEvent evt, javax.swing.JTextField jTField, int batas_atas) {
         String c = jTField.getText();
-
         if (c.length() > batas_atas) {
             evt.consume();
         }
 
     }
 
+    /**
+     * Menghandle jika inputan jumlah shit melebihi atau kurang dari persyaratan yaitu antara 5 sampai 10 hari
+     * @param evt memerlukan aksi evt
+     * @param jTField memerukan inputan parameter objek jtextfield
+     * @param batas_atas memerlukan inputan nilai batas maksimal dari jumlah shift yaitu maksimal 10 hari
+     * @param batas_bawah memerlukan inputan nilai batas minimal dari jumlah shift yaitu minimal 5 hari
+     */
     public void validasiBatas(java.awt.event.KeyEvent evt, javax.swing.JTextField jTField, int batas_atas, int batas_bawah) {
         String jml = (jTField.getText());
         try {

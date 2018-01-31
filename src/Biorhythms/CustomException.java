@@ -11,6 +11,10 @@ package Biorhythms;
  */
 public class CustomException extends Exception {
 
+    /**
+     * Memanggil konstruktor kelas Exception
+     * @param pesan memerlukan inputan parameter berupa pesan yang akan disampaikan ketika terjadi error  
+     */
     public CustomException(String pesan) {
         super(pesan);
     }

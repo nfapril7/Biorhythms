@@ -19,7 +19,7 @@ public class FormSchedule extends javax.swing.JFrame {
     ValiDate v2;
 
     /**
-     * Creates new form FormSchedule
+     * Membuat form baru class FormSchedule
      */
     public FormSchedule() {
         initComponents();
@@ -316,13 +316,13 @@ public class FormSchedule extends javax.swing.JFrame {
 
         jTbDetail1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {},
+                {},
+                {},
+                {}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+
             }
         ));
         jTbDetail1.setEnabled(false);
@@ -330,13 +330,13 @@ public class FormSchedule extends javax.swing.JFrame {
 
         jTbDetail2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {},
+                {},
+                {},
+                {}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+
             }
         ));
         jTbDetail2.setEnabled(false);
@@ -462,7 +462,11 @@ public class FormSchedule extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+/**
+     * Menjalankan fungsi dari kelas-kelas di package Biorhythms
+     *
+     * @param evt Memerlukan inputan evt ketika button diclick
+     */
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         try {
@@ -569,10 +573,6 @@ public class FormSchedule extends javax.swing.JFrame {
     }//GEN-LAST:event_TFjmlHariKeyReleased
 
     private void TFtgl1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TFtgl1KeyReleased
-
-        if (TFtgl1.getText().isEmpty()) {
-            jButton1.disable();
-        }
     }//GEN-LAST:event_TFtgl1KeyReleased
 
     private void TFbln1AncestorMoved(java.awt.event.HierarchyEvent evt) {//GEN-FIRST:event_TFbln1AncestorMoved
@@ -581,14 +581,10 @@ public class FormSchedule extends javax.swing.JFrame {
 
     private void TFthn1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TFthn1KeyReleased
 
-        if (TFthn1.getText().isEmpty()) {
-            jButton1.disable();
-        }
     }//GEN-LAST:event_TFthn1KeyReleased
 
     private void TFbln1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TFbln1KeyReleased
-
-        v.validasiBatas(evt, TFbln1, 12, 1);
+     v.validasiBatas(evt, TFbln1, 12, 1);
     }//GEN-LAST:event_TFbln1KeyReleased
 
     private void TFtgl2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TFtgl2KeyReleased
@@ -596,8 +592,7 @@ public class FormSchedule extends javax.swing.JFrame {
     }//GEN-LAST:event_TFtgl2KeyReleased
 
     private void TFbln2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TFbln2KeyReleased
-
-        v.validasiBatas(evt, TFbln2, 12, 1);
+       v.validasiBatas(evt, TFbln2, 12, 1);
     }//GEN-LAST:event_TFbln2KeyReleased
 
     private void TFtglShiftKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TFtglShiftKeyReleased
@@ -605,7 +600,6 @@ public class FormSchedule extends javax.swing.JFrame {
     }//GEN-LAST:event_TFtglShiftKeyReleased
 
     private void TFblnShiftKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TFblnShiftKeyReleased
-
         v.validasiBatas(evt, TFblnShift, 12, 1);
     }//GEN-LAST:event_TFblnShiftKeyReleased
 
@@ -631,11 +625,10 @@ public class FormSchedule extends javax.swing.JFrame {
 
     private void TFtgl2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TFtgl2KeyPressed
         // TODO add your handling code here:
-        if (TFtgl2.getText().isEmpty()) {
-            jButton1.disable();
-        }
     }//GEN-LAST:event_TFtgl2KeyPressed
-
+    /**
+     * Menset textfield null ketika setiap terjadi kesalahan
+     */
     public void setNull() {
         JOptionPane.showMessageDialog(null, new CustomException("Validasi gagal"),
                 "Warning", JOptionPane.INFORMATION_MESSAGE);
