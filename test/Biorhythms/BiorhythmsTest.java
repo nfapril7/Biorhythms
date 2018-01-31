@@ -107,7 +107,7 @@ public class BiorhythmsTest {
         System.out.println("getIntelektual");
         int[] hari = {20};
         Biorhythms instance = new Biorhythms(1);
-        double[] expResult = {-0.730835964278124};
+        double[] expResult = {-0.6181589862206053};
         double[] result = instance.getIntelektual(hari);
         assertArrayEquals(expResult, result, 0.0);
 

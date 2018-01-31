@@ -19,7 +19,7 @@ public class Biorhythms {
 
     /**
      * @param args Konstruktor untuk membuat objek array variabel fisik,
-     * emosional, intelektuaal dan total serta meinisialisasi nilai variable
+     * emosional, intelektual dan total serta meinisialisasi nilai variable
      * jumlah hari shift
      */
     public Biorhythms(int jmlhari) {
@@ -30,7 +30,7 @@ public class Biorhythms {
     }
 
     /**
-     * Menjalankan fungsi Biorhythms untuk nilai emosional
+     * Menjalankan fungsi Biorhythms untuk nilai emosional dengan rumus sin((2 * phi * hari) / 28)
      * @param hari jumlah selisih hari antara tanggal lahir pekerja dengan
      * tanggal shift
      * @return mengembalikan nilai biorhythms emosional
@@ -44,7 +44,7 @@ public class Biorhythms {
     }
 
     /**
-     * Menjalankan fungsi Biorhythms untuk nilai fisik
+     * Menjalankan fungsi Biorhythms untuk nilai fisik dengan rumus sin((2 * phi * hari) / 23)
      * @param hari jumlah selisih hari antara tanggal lahir pekerja dengan
      * tanggal shift
      * @return mengembalikan nilai biorhythms fisik
@@ -58,14 +58,14 @@ public class Biorhythms {
     }
 
     /**
-     * Menjalankan fungsi Biorhythms untuk nilai intelektual
+     * Menjalankan fungsi Biorhythms untuk nilai intelektual dengan rumus sin((2 * phi * hari) / 33)
      * @param hari jumlah selisih hari antara tanggal lahir pekerja dengan
      * tanggal shift
      * @return mengembalikan nilai biorhythms intelektual
      */
     public double[] getIntelektual(int hari[]) {
         for (int i = 0; i < intelektual.length; i++) {
-            intelektual[i] = Math.sin((2 * Math.PI * hari[i]) / 23);
+            intelektual[i] = Math.sin((2 * Math.PI * hari[i]) / 33);
             System.out.println("intelektual " + intelektual[i]);
         }
         return intelektual;
