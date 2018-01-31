@@ -490,7 +490,7 @@ public class FormSchedule extends javax.swing.JFrame {
                             Pekerja p1 = new Pekerja(v.getJmlShift());
                             v2.Hitung(v2.getShift(), b2);
                             Pekerja p2 = new Pekerja(v2.getJmlShift());
-                            p2.perbandingan(p1.getTotal(), p2.getTotal(), v.getJmlShift(), v, jTable1);
+                            p2.perbandingan(b1.total, b2.total, v.getJmlShift(), v, jTable1);
                             b2.table(b1, b2, jTbDetail1, jTbDetail2, v.getJmlShift(), v);
                             jTFlahir1.setText(String.valueOf(v.getTgllahir()));
                             jTFlahir2.setText(String.valueOf(v2.getTgllahir()));
