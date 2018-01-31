@@ -8,6 +8,7 @@ package Biorhythms;
 import java.awt.event.KeyEvent;
 import java.text.SimpleDateFormat;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -57,6 +58,7 @@ public class FormSchedule extends javax.swing.JFrame {
         TFjmlHari = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTbDetail1 = new javax.swing.JTable();
@@ -230,6 +232,13 @@ public class FormSchedule extends javax.swing.JFrame {
             }
         });
 
+        jButton2.setText("RESET");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -237,9 +246,9 @@ public class FormSchedule extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 417, Short.MAX_VALUE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel1)
@@ -258,7 +267,7 @@ public class FormSchedule extends javax.swing.JFrame {
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(TFbln1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(TFbln2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(TFthn1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(TFthn2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -270,9 +279,11 @@ public class FormSchedule extends javax.swing.JFrame {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(TFthnShift, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(122, 122, 122)
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(34, 34, 34)))
+                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jButton2)
+                                .addGap(17, 17, 17)))
+                        .addGap(33, 33, 33)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -305,9 +316,11 @@ public class FormSchedule extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addComponent(jLabel6)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31)
+                .addGap(28, 28, 28)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(jButton2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(55, 55, 55))
         );
@@ -393,7 +406,7 @@ public class FormSchedule extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel9)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel12)
                     .addComponent(jTFlahir2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -431,7 +444,7 @@ public class FormSchedule extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(32, 32, 32)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(249, Short.MAX_VALUE))
+                .addContainerGap(237, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Grafik", jPanel3);
@@ -455,8 +468,8 @@ public class FormSchedule extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 473, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, Short.MAX_VALUE)
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 461, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -475,35 +488,45 @@ public class FormSchedule extends javax.swing.JFrame {
             v.validate(Integer.parseInt(TFtglShift.getText()), Integer.parseInt(TFblnShift.getText()), Integer.parseInt(TFthnShift.getText()));
             if (v.isValidate) {
                 v.validate(Integer.parseInt(TFtgl1.getText()), Integer.parseInt(TFbln1.getText()), Integer.parseInt(TFthn1.getText()));
-                Biorhythms b1 = new Biorhythms(v.getJmlShift());
                 if (v.isValidate) {
                     v2 = new ValiDate();
                     v2.setJmlShift(v.getJmlShift());
                     v2.setTglshift(v.getTglshift());
                     v2.validate(Integer.parseInt(TFtgl2.getText()), Integer.parseInt(TFbln2.getText()), Integer.parseInt(TFthn2.getText()));
-                    Biorhythms b2 = new Biorhythms(v2.getJmlShift());
                     if (v2.isValidate) {
                         v.makeCal();
                         v2.makeCal();
                         if (v.isValidate && v2.isValidate) {
-                            v.Hitung(v.getShift(), b1);
                             Pekerja p1 = new Pekerja(v.getJmlShift());
-                            v2.Hitung(v2.getShift(), b2);
+                            v.Hitung(v.getShift(), p1);
                             Pekerja p2 = new Pekerja(v2.getJmlShift());
-                            p2.perbandingan(b1.total, b2.total, v.getJmlShift(), v, jTable1);
-                            b2.table(b1, b2, jTbDetail1, jTbDetail2, v.getJmlShift(), v);
+                            v2.Hitung(v2.getShift(), p2);
+                            p2.perbandingan(p1.total, p2.total, v.getJmlShift(), v, jTable1);
+                            p2.table(p1, p2, jTbDetail1, jTbDetail2, v.getJmlShift(), v);
                             jTFlahir1.setText(String.valueOf(v.getTgllahir()));
                             jTFlahir2.setText(String.valueOf(v2.getTgllahir()));
                         } else {
+                            JOptionPane.showMessageDialog(null, new CustomException("Validasi gagal"),
+                                    "Warning", JOptionPane.INFORMATION_MESSAGE);
+
                             setNull();
                         }
                     } else {
+                        JOptionPane.showMessageDialog(null, new CustomException("Validasi gagal"),
+                                "Warning", JOptionPane.INFORMATION_MESSAGE);
+
                         setNull();
                     }
                 } else {
+                    JOptionPane.showMessageDialog(null, new CustomException("Validasi gagal"),
+                            "Warning", JOptionPane.INFORMATION_MESSAGE);
+
                     setNull();
                 }
             } else {
+                JOptionPane.showMessageDialog(null, new CustomException("Validasi gagal"),
+                        "Warning", JOptionPane.INFORMATION_MESSAGE);
+
                 setNull();
             }
         } catch (NumberFormatException ex) {
@@ -584,7 +607,7 @@ public class FormSchedule extends javax.swing.JFrame {
     }//GEN-LAST:event_TFthn1KeyReleased
 
     private void TFbln1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TFbln1KeyReleased
-     v.validasiBatas(evt, TFbln1, 12, 1);
+        v.validasiBatas(evt, TFbln1, 12, 1);
     }//GEN-LAST:event_TFbln1KeyReleased
 
     private void TFtgl2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TFtgl2KeyReleased
@@ -592,7 +615,7 @@ public class FormSchedule extends javax.swing.JFrame {
     }//GEN-LAST:event_TFtgl2KeyReleased
 
     private void TFbln2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TFbln2KeyReleased
-       v.validasiBatas(evt, TFbln2, 12, 1);
+        v.validasiBatas(evt, TFbln2, 12, 1);
     }//GEN-LAST:event_TFbln2KeyReleased
 
     private void TFtglShiftKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TFtglShiftKeyReleased
@@ -626,12 +649,25 @@ public class FormSchedule extends javax.swing.JFrame {
     private void TFtgl2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TFtgl2KeyPressed
         // TODO add your handling code here:
     }//GEN-LAST:event_TFtgl2KeyPressed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        setNull();
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        DefaultTableModel model2 = (DefaultTableModel) jTbDetail1.getModel();
+        DefaultTableModel model3 = (DefaultTableModel) jTbDetail2.getModel();
+        while (model.getRowCount() > 0) {
+            for (int i = 0; i < model.getRowCount(); i++) {
+                model.removeRow(i);
+                model2.removeRow(i);
+                model3.removeRow(i);
+            }
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
     /**
      * Menset textfield null ketika setiap terjadi kesalahan
      */
     public void setNull() {
-        JOptionPane.showMessageDialog(null, new CustomException("Validasi gagal"),
-                "Warning", JOptionPane.INFORMATION_MESSAGE);
         TFtgl1.setText("");
         TFbln1.setText("");
         TFthn1.setText("");
@@ -693,6 +729,7 @@ public class FormSchedule extends javax.swing.JFrame {
     private javax.swing.JTextField TFthn2;
     private javax.swing.JTextField TFthnShift;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel12;
