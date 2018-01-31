@@ -11,7 +11,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author april nf
+ * @author april nf , ryanpradnya
  */
 public class FormSchedule extends javax.swing.JFrame {
 

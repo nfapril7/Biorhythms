@@ -21,7 +21,7 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author userx
+ * @author aprilnf, ryanpradnya
  */
 public class ValiDateTest {
 
