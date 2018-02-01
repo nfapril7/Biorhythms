@@ -24,7 +24,7 @@ public class FormSchedule extends javax.swing.JFrame {
      */
     public FormSchedule() {
         initComponents();
-        jButton2.disable();
+        jButton2.setEnabled(false);
 
     }
 
@@ -483,6 +483,8 @@ public class FormSchedule extends javax.swing.JFrame {
             jTFlahir1.setText("");
             jTFlahir2.setText("");
         }
+        jButton1.setEnabled(true);
+        jButton2.setEnabled(false);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
@@ -515,6 +517,8 @@ public class FormSchedule extends javax.swing.JFrame {
                             p2.table(p1, p2, jTbDetail1, jTbDetail2, v.getJmlShift(), v);
                             jTFlahir1.setText(String.valueOf(v.getTgllahir()));
                             jTFlahir2.setText(String.valueOf(v2.getTgllahir()));
+                            jButton2.setEnabled(true);
+                            jButton1.setEnabled(false);
                         } else {
                             JOptionPane.showMessageDialog(null, new CustomException("Validasi gagal"),
                                     "Warning", JOptionPane.INFORMATION_MESSAGE);
@@ -543,6 +547,7 @@ public class FormSchedule extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Data tidak boleh null",
                     "Warning", JOptionPane.INFORMATION_MESSAGE);
         }
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void TFjmlHariKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TFjmlHariKeyTyped
@@ -662,26 +667,20 @@ public class FormSchedule extends javax.swing.JFrame {
 
     private void jButton1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jButton1KeyPressed
         // TODO add your handling code here:
-        jButton2.enable();
-        jButton1.disable();
+
     }//GEN-LAST:event_jButton1KeyPressed
 
     private void jButton1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jButton1KeyReleased
-        // TODO add your handling code here:
-                jButton2.enable();
-        jButton1.disable();
+
     }//GEN-LAST:event_jButton1KeyReleased
 
     private void jButton1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jButton1KeyTyped
         // TODO add your handling code here:        
-        jButton2.enable();
-        jButton1.disable();
+
     }//GEN-LAST:event_jButton1KeyTyped
 
     private void jButton2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jButton2KeyTyped
-        // TODO add your handling code here:        
-        jButton2.disable();
-        jButton1.enable();
+
     }//GEN-LAST:event_jButton2KeyTyped
     /**
      * Menset textfield null ketika setiap terjadi kesalahan
