@@ -20,15 +20,15 @@ import javax.swing.JOptionPane;
  */
 public class ValiDate {
 
-    private int jmlShift; 
-    private int tgl; 
-    private int bln; 
-    private int thn; 
-    private int jumlahHari; 
-    private int tglAwal; 
-    private int blnAwal; 
+    private int jmlShift;
+    private int tgl;
+    private int bln;
+    private int thn;
+    private int jumlahHari;
+    private int tglAwal;
+    private int blnAwal;
     private int thnAwal;
-    private Date Tgllahir; 
+    private Date Tgllahir;
     private Date Tglshift;
     boolean isValidate = true;
     protected Date Shift[];
@@ -440,6 +440,7 @@ public class ValiDate {
 
     /**
      * Menghandle jika inputan user selain integer
+     *
      * @param evt variabel untuk menset objek dari keyevent method
      * validasiKarakter digunakan untuk validasi agar tidak bisa menginputkan
      * selain integer
@@ -451,18 +452,19 @@ public class ValiDate {
                 evt.consume();
             }
         } catch (NumberFormatException ex) {
-            JOptionPane.showMessageDialog(null, "Data tidak boleh null",
+            JOptionPane.showMessageDialog(null, "Inputan tidak diperbolehkan selain angka",
                     "Warning", JOptionPane.INFORMATION_MESSAGE);
         }
-    }
-
-    /**
-     * Menghandle jika inputan jumlah diigt melebihi batas maksimal yang diperbolehkan
-     * @param evt memerlukan aksi evt
-     * @param jTField memerlukan inputan parameter objek jtextfield
-     * @param batas_atas memerlukan inputan nilai batas digit maksimal dari suatu variabel
-     * bulan
-     */
+        }
+        /**
+         * Menghandle jika inputan jumlah diigt melebihi batas maksimal yang
+         * diperbolehkan
+         *
+         * @param evt memerlukan aksi evt
+         * @param jTField memerlukan inputan parameter objek jtextfield
+         * @param batas_atas memerlukan inputan nilai batas digit maksimal dari
+         * suatu variabel bulan
+         */
     public void validasiJumlah(java.awt.event.KeyEvent evt, javax.swing.JTextField jTField, int batas_atas) {
         String c = jTField.getText();
         if (c.length() > batas_atas) {
@@ -472,11 +474,15 @@ public class ValiDate {
     }
 
     /**
-     * Menghandle jika inputan jumlah shit melebihi atau kurang dari persyaratan yaitu antara 5 sampai 10 hari
+     * Menghandle jika inputan jumlah shit melebihi atau kurang dari persyaratan
+     * yaitu antara 5 sampai 10 hari
+     *
      * @param evt memerlukan aksi evt
      * @param jTField memerukan inputan parameter objek jtextfield
-     * @param batas_atas memerlukan inputan nilai batas maksimal dari jumlah shift yaitu maksimal 10 hari
-     * @param batas_bawah memerlukan inputan nilai batas minimal dari jumlah shift yaitu minimal 5 hari
+     * @param batas_atas memerlukan inputan nilai batas maksimal dari jumlah
+     * shift yaitu maksimal 10 hari
+     * @param batas_bawah memerlukan inputan nilai batas minimal dari jumlah
+     * shift yaitu minimal 5 hari
      */
     public void validasiBatas(java.awt.event.KeyEvent evt, javax.swing.JTextField jTField, int batas_atas, int batas_bawah) {
         String jml = (jTField.getText());
@@ -490,7 +496,7 @@ public class ValiDate {
                 jTField.setText("");
             }
         } catch (NumberFormatException ex) {
-            JOptionPane.showMessageDialog(null, "Data tidak boleh null",
+            JOptionPane.showMessageDialog(null, "Inputan tidak boleh selain angka",
                     "Warning", JOptionPane.INFORMATION_MESSAGE);
         }
     }
