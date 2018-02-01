@@ -41,7 +41,6 @@ public abstract class  Biorhythms {
     public double[] getEmosional(int hari[]) {
         for (int i = 0; i < emosional.length; i++) {
             emosional[i] = Math.sin((2 * Math.PI * hari[i]) / 28);
-            System.out.println("emosional " + emosional[i]);
         }
         return emosional;
     }
@@ -55,7 +54,6 @@ public abstract class  Biorhythms {
     public double[] getFisik(int hari[]) {
         for (int i = 0; i < fisik.length; i++) {
             fisik[i] = Math.sin((2 * Math.PI * hari[i]) / 23);
-            System.out.println("fisik " + fisik[i]);
         }
         return fisik;
     }
@@ -69,7 +67,6 @@ public abstract class  Biorhythms {
     public double[] getIntelektual(int hari[]) {
         for (int i = 0; i < intelektual.length; i++) {
             intelektual[i] = Math.sin((2 * Math.PI * hari[i]) / 33);
-            System.out.println("intelektual " + intelektual[i]);
         }
         return intelektual;
     }
@@ -83,7 +80,6 @@ public abstract class  Biorhythms {
         System.out.println("");
         for (int i = 0; i < total.length; i++) {
             total[i] = fisik[i] + intelektual[i] + emosional[i];
-            System.out.println(i + "Total " + total[i]);
         }
         return total;
     }

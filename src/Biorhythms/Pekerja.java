@@ -62,7 +62,6 @@ public class Pekerja extends Biorhythms {
 //        jTable1 = new JTable(model);         
         List<Object> list = new ArrayList<>();
         for (int i = 0; i < jumlahshift; i++) {
-            System.out.println(BiorithmsPekerja1[i]+" - "+BiorithmsPekerja2[i]);
             if (BiorithmsPekerja1[i] > BiorithmsPekerja2[i]) {
                 pilih[i] = "Pekerja 1";
             } else {

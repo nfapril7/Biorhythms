@@ -5,13 +5,11 @@
  */
 package Biorhythms;
 
-import java.awt.TextField;
 import java.awt.event.KeyEvent;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 import javax.swing.JOptionPane;
@@ -327,7 +325,6 @@ public class ValiDate {
                 check(tgl, bln, thn);
                 break;
             default:
-                System.out.println("Data tanggal yang Anda masukan salah" + getTgl() + " - " + getBln() + " - " + getThn());
                 isValidate = false;
         }
         return isValidate;
@@ -367,7 +364,6 @@ public class ValiDate {
         for (int i = 0; i < getJmlShift(); i++) {
             cal.setTime(Tglshift);
             cal.add(Calendar.DAY_OF_MONTH, i);
-            System.out.println(df.format(cal.getTime()));
             temp[i] = (cal.getTime());
             setShift(temp);
         }

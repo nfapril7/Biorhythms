@@ -24,6 +24,7 @@ public class FormSchedule extends javax.swing.JFrame {
      */
     public FormSchedule() {
         initComponents();
+        jButton2.disable();
 
     }
 
@@ -70,8 +71,6 @@ public class FormSchedule extends javax.swing.JFrame {
         jTFlahir1 = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
         jTFlahir2 = new javax.swing.JTextField();
-        jPanel3 = new javax.swing.JPanel();
-        jPanel4 = new javax.swing.JPanel();
 
         jLabel5.setText("jLabel5");
 
@@ -150,6 +149,11 @@ public class FormSchedule extends javax.swing.JFrame {
             }
         });
 
+        TFbln2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TFbln2ActionPerformed(evt);
+            }
+        });
         TFbln2.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 TFbln2KeyReleased(evt);
@@ -231,11 +235,27 @@ public class FormSchedule extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
+        jButton1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jButton1KeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jButton1KeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jButton1KeyTyped(evt);
+            }
+        });
 
         jButton2.setText("RESET");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
+            }
+        });
+        jButton2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jButton2KeyTyped(evt);
             }
         });
 
@@ -417,38 +437,6 @@ public class FormSchedule extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Detail", jPanel2);
 
-        jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 391, Short.MAX_VALUE)
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 162, Short.MAX_VALUE)
-        );
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(24, Short.MAX_VALUE))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(32, 32, 32)
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(237, Short.MAX_VALUE))
-        );
-
-        jTabbedPane1.addTab("Grafik", jPanel3);
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -475,7 +463,29 @@ public class FormSchedule extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-/**
+
+    private void jPanel1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPanel1KeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPanel1KeyReleased
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        setNull();
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        DefaultTableModel model2 = (DefaultTableModel) jTbDetail1.getModel();
+        DefaultTableModel model3 = (DefaultTableModel) jTbDetail2.getModel();
+        while (model.getRowCount() > 0) {
+            for (int i = 0; i < model.getRowCount(); i++) {
+                model.removeRow(i);
+                model2.removeRow(i);
+                model3.removeRow(i);
+            }
+            jTFlahir1.setText("");
+            jTFlahir2.setText("");
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    /**
      * Menjalankan fungsi dari kelas-kelas di package Biorhythms
      *
      * @param evt Memerlukan inputan evt ketika button diclick
@@ -535,135 +545,144 @@ public class FormSchedule extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void TFtgl1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TFtgl1KeyTyped
-        v.validasiKarakter(evt);
-        v.validasiJumlah(evt, TFtgl1, 1);
-
-    }//GEN-LAST:event_TFtgl1KeyTyped
-
-    private void TFbln1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TFbln1KeyTyped
-        v.validasiKarakter(evt);
-        v.validasiJumlah(evt, TFbln1, 1);
-    }//GEN-LAST:event_TFbln1KeyTyped
-
-    private void TFthn1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TFthn1KeyTyped
-        v.validasiKarakter(evt);
-        v.validasiJumlah(evt, TFthn1, 3);
-    }//GEN-LAST:event_TFthn1KeyTyped
-
-    private void TFtgl2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TFtgl2KeyTyped
-        v.validasiKarakter(evt);
-        v.validasiJumlah(evt, TFtgl2, 1);
-    }//GEN-LAST:event_TFtgl2KeyTyped
-
-    private void TFbln2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TFbln2KeyTyped
-        v.validasiKarakter(evt);
-        v.validasiJumlah(evt, TFbln2, 1);
-    }//GEN-LAST:event_TFbln2KeyTyped
-
-    private void TFthn2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TFthn2KeyTyped
-        v.validasiKarakter(evt);
-        v.validasiJumlah(evt, TFthn2, 3);
-    }//GEN-LAST:event_TFthn2KeyTyped
-
-    private void TFtglShiftKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TFtglShiftKeyTyped
-        v.validasiKarakter(evt);
-        v.validasiJumlah(evt, TFtglShift, 1);
-    }//GEN-LAST:event_TFtglShiftKeyTyped
-
-    private void TFblnShiftKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TFblnShiftKeyTyped
-        v.validasiKarakter(evt);
-        v.validasiJumlah(evt, TFblnShift, 1);
-    }//GEN-LAST:event_TFblnShiftKeyTyped
-
-    private void TFthnShiftKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TFthnShiftKeyTyped
-        v.validasiKarakter(evt);
-        v.validasiJumlah(evt, TFthnShift, 3);
-    }//GEN-LAST:event_TFthnShiftKeyTyped
-
     private void TFjmlHariKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TFjmlHariKeyTyped
         v.validasiKarakter(evt);
         v.validasiJumlah(evt, TFjmlHari, 1);
     }//GEN-LAST:event_TFjmlHariKeyTyped
-
-    private void TFjmlHariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TFjmlHariActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TFjmlHariActionPerformed
 
     private void TFjmlHariKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TFjmlHariKeyReleased
         // TODO add your handling code here:
         v.validasiBatas(evt, TFjmlHari, 10, 5);
     }//GEN-LAST:event_TFjmlHariKeyReleased
 
-    private void TFtgl1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TFtgl1KeyReleased
-    }//GEN-LAST:event_TFtgl1KeyReleased
+    private void TFjmlHariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TFjmlHariActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TFjmlHariActionPerformed
 
-    private void TFbln1AncestorMoved(java.awt.event.HierarchyEvent evt) {//GEN-FIRST:event_TFbln1AncestorMoved
-
-    }//GEN-LAST:event_TFbln1AncestorMoved
-
-    private void TFthn1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TFthn1KeyReleased
-
-    }//GEN-LAST:event_TFthn1KeyReleased
-
-    private void TFbln1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TFbln1KeyReleased
-        v.validasiBatas(evt, TFbln1, 12, 1);
-    }//GEN-LAST:event_TFbln1KeyReleased
-
-    private void TFtgl2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TFtgl2KeyReleased
-
-    }//GEN-LAST:event_TFtgl2KeyReleased
-
-    private void TFbln2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TFbln2KeyReleased
-        v.validasiBatas(evt, TFbln2, 12, 1);
-    }//GEN-LAST:event_TFbln2KeyReleased
-
-    private void TFtglShiftKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TFtglShiftKeyReleased
-
-    }//GEN-LAST:event_TFtglShiftKeyReleased
-
-    private void TFblnShiftKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TFblnShiftKeyReleased
-        v.validasiBatas(evt, TFblnShift, 12, 1);
-    }//GEN-LAST:event_TFblnShiftKeyReleased
-
-    private void TFthn2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TFthn2KeyReleased
-
-    }//GEN-LAST:event_TFthn2KeyReleased
+    private void TFthnShiftKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TFthnShiftKeyTyped
+        v.validasiKarakter(evt);
+        v.validasiJumlah(evt, TFthnShift, 3);
+    }//GEN-LAST:event_TFthnShiftKeyTyped
 
     private void TFthnShiftKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TFthnShiftKeyReleased
 
     }//GEN-LAST:event_TFthnShiftKeyReleased
 
-    private void TFblnShiftActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TFblnShiftActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TFblnShiftActionPerformed
-
     private void TFthnShiftActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TFthnShiftActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_TFthnShiftActionPerformed
 
-    private void jPanel1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPanel1KeyReleased
+    private void TFblnShiftKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TFblnShiftKeyTyped
+        v.validasiKarakter(evt);
+        v.validasiJumlah(evt, TFblnShift, 1);
+    }//GEN-LAST:event_TFblnShiftKeyTyped
+
+    private void TFblnShiftKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TFblnShiftKeyReleased
+        v.validasiBatas(evt, TFblnShift, 12, 1);
+    }//GEN-LAST:event_TFblnShiftKeyReleased
+
+    private void TFblnShiftActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TFblnShiftActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jPanel1KeyReleased
+    }//GEN-LAST:event_TFblnShiftActionPerformed
+
+    private void TFtglShiftKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TFtglShiftKeyTyped
+        v.validasiKarakter(evt);
+        v.validasiJumlah(evt, TFtglShift, 1);
+    }//GEN-LAST:event_TFtglShiftKeyTyped
+
+    private void TFtglShiftKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TFtglShiftKeyReleased
+
+    }//GEN-LAST:event_TFtglShiftKeyReleased
+
+    private void TFthn2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TFthn2KeyTyped
+        v.validasiKarakter(evt);
+        v.validasiJumlah(evt, TFthn2, 3);
+    }//GEN-LAST:event_TFthn2KeyTyped
+
+    private void TFthn2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TFthn2KeyReleased
+
+    }//GEN-LAST:event_TFthn2KeyReleased
+
+    private void TFbln2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TFbln2KeyTyped
+        v.validasiKarakter(evt);
+        v.validasiJumlah(evt, TFbln2, 1);
+    }//GEN-LAST:event_TFbln2KeyTyped
+
+    private void TFbln2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TFbln2KeyReleased
+        v.validasiBatas(evt, TFbln2, 12, 1);
+    }//GEN-LAST:event_TFbln2KeyReleased
+
+    private void TFtgl2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TFtgl2KeyTyped
+        v.validasiKarakter(evt);
+        v.validasiJumlah(evt, TFtgl2, 1);
+    }//GEN-LAST:event_TFtgl2KeyTyped
+
+    private void TFtgl2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TFtgl2KeyReleased
+
+    }//GEN-LAST:event_TFtgl2KeyReleased
 
     private void TFtgl2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TFtgl2KeyPressed
         // TODO add your handling code here:
     }//GEN-LAST:event_TFtgl2KeyPressed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void TFthn1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TFthn1KeyTyped
+        v.validasiKarakter(evt);
+        v.validasiJumlah(evt, TFthn1, 3);
+    }//GEN-LAST:event_TFthn1KeyTyped
+
+    private void TFthn1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TFthn1KeyReleased
+
+    }//GEN-LAST:event_TFthn1KeyReleased
+
+    private void TFbln1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TFbln1KeyTyped
+        v.validasiKarakter(evt);
+        v.validasiJumlah(evt, TFbln1, 1);
+    }//GEN-LAST:event_TFbln1KeyTyped
+
+    private void TFbln1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TFbln1KeyReleased
+        v.validasiBatas(evt, TFbln1, 12, 1);
+    }//GEN-LAST:event_TFbln1KeyReleased
+
+    private void TFbln1AncestorMoved(java.awt.event.HierarchyEvent evt) {//GEN-FIRST:event_TFbln1AncestorMoved
+
+    }//GEN-LAST:event_TFbln1AncestorMoved
+
+    private void TFtgl1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TFtgl1KeyTyped
+        v.validasiKarakter(evt);
+        v.validasiJumlah(evt, TFtgl1, 1);
+    }//GEN-LAST:event_TFtgl1KeyTyped
+
+    private void TFtgl1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TFtgl1KeyReleased
+
+    }//GEN-LAST:event_TFtgl1KeyReleased
+
+    private void TFbln2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TFbln2ActionPerformed
         // TODO add your handling code here:
-        setNull();
-        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-        DefaultTableModel model2 = (DefaultTableModel) jTbDetail1.getModel();
-        DefaultTableModel model3 = (DefaultTableModel) jTbDetail2.getModel();
-        while (model.getRowCount() > 0) {
-            for (int i = 0; i < model.getRowCount(); i++) {
-                model.removeRow(i);
-                model2.removeRow(i);
-                model3.removeRow(i);
-            }
-        }
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_TFbln2ActionPerformed
+
+    private void jButton1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jButton1KeyPressed
+        // TODO add your handling code here:
+        jButton2.enable();
+        jButton1.disable();
+    }//GEN-LAST:event_jButton1KeyPressed
+
+    private void jButton1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jButton1KeyReleased
+        // TODO add your handling code here:
+                jButton2.enable();
+        jButton1.disable();
+    }//GEN-LAST:event_jButton1KeyReleased
+
+    private void jButton1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jButton1KeyTyped
+        // TODO add your handling code here:        
+        jButton2.enable();
+        jButton1.disable();
+    }//GEN-LAST:event_jButton1KeyTyped
+
+    private void jButton2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jButton2KeyTyped
+        // TODO add your handling code here:        
+        jButton2.disable();
+        jButton1.enable();
+    }//GEN-LAST:event_jButton2KeyTyped
     /**
      * Menset textfield null ketika setiap terjadi kesalahan
      */
@@ -710,8 +729,8 @@ public class FormSchedule extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
 
+            public void run() {
                 new FormSchedule().setVisible(true);
             }
         });
@@ -743,8 +762,6 @@ public class FormSchedule extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;

@@ -43,7 +43,7 @@ public class PekerjaTest {
      * class Pekerja.
      */
     @Test
-    public void testPerbandingan() {
+    public void testPerbandingan() { 
         System.out.println("perbandingan");
         ValiDate validate1 = new ValiDate();
         ValiDate validate2 = new ValiDate();
